@@ -1,0 +1,897 @@
+/* =========================================
+   STYLE.CSS - UNDANGAN DIGITAL PREMIUM
+   ========================================= */
+
+/* 1. IMPORT FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Parisienne&family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap");
+
+/* 2. RESET & GLOBAL STYLES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fdfbf8; /* Warna Krem */
+  color: #1a1a1a;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* 3. SAMPUL / WELCOME SCREEN */
+#welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #e0f2fe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  /* Transisi Halus Tanpa Njeglek */
+  transition:
+    transform 1.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    visibility 1.3s;
+  will-change: transform;
+}
+
+/* Efek saat tombol diklik (JavaScript class) */
+.hidden-sampul {
+  transform: translateY(-100%);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.sampul-content {
+  text-align: center;
+  width: 90%;
+  max-width: 450px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  border: 1px solid rgba(220, 208, 192, 0.5);
+}
+
+.sampul-names {
+  font-family: "Parisienne", cursive;
+  font-size: 3.5rem;
+  margin: 20px 0;
+  color: #1a1a1a;
+}
+
+.guest-box {
+  margin: 35px 0;
+  padding: 20px 0;
+  border-top: 1px solid #dcd0c0;
+  border-bottom: 1px solid #dcd0c0;
+}
+
+#guest-name {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  margin-top: 10px;
+}
+
+/* 4. LAYOUT UNDANGAN UTAMA */
+#main-invitation {
+  display: none; /* Disembunyikan sampai tombol diklik */
+}
+
+.container {
+  max-width: 680px; /* Lebar Kontainer */
+  margin: 0 auto;
+  padding: 80px 25px;
+  text-align: center;
+}
+
+.quote-container {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 70px;
+}
+
+.title-script {
+  font-family: "Parisienne", cursive;
+  font-size: 3rem;
+  margin: 40px 0;
+}
+
+/* 5. MEMPELAI SECTION */
+.couple-frame {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 1px solid #dcd0c0;
+  padding: 10px;
+}
+
+.couple-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.name-text {
+  font-family: "Playfair Display", serif;
+  font-size: 2.2rem;
+  margin-top: 25px;
+  color: #111;
+}
+
+.parent-text {
+  color: #666;
+  font-size: 0.95rem;
+  margin-top: 5px;
+}
+
+/* 6. DEKORASI BUNGA */
+.flower-decor {
+  position: absolute;
+  bottom: -20px;
+  left: -45px;
+  width: 160px;
+  z-index: 2;
+  animation: floating 4s ease-in-out infinite;
+}
+
+.flower-right {
+  left: auto;
+  right: -45px;
+  transform: scaleX(-1); /* Membalik bunga agar simetris */
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(3deg);
+  }
+}
+
+/* 7. TOMBOL & LINK */
+.btn-custom {
+  background-color: #1a1a1a;
+  color: #fff;
+  padding: 15px 40px;
+  border-radius: 50px;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: 0.4s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-custom:hover {
+  background-color: #444;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.instagram-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: #888;
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+/* 8. RESPONSIVE DESIGN (MOBILE) */
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 60px 20px;
+  }
+
+  .sampul-names {
+    font-size: 2.8rem;
+  }
+
+  .couple-frame {
+    width: 240px;
+    height: 240px;
+  }
+
+  .flower-decor {
+    width: 125px;
+    bottom: -15px;
+    left: -35px;
+  }
+
+  .flower-right {
+    right: -35px;
+  }
+
+  .name-text {
+    font-size: 1.7rem;
+  }
+}
+
+/* --- HERO SECTION FULL SCREEN --- */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  /* Menggunakan background foto tanpa overlay gelap agar warna hitam terlihat jelas */
+  background-image: url("main_bg.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Memaksa konten ke arah atas */
+  margin: 0;
+  padding: 0;
+}
+
+/* Overlay agar teks lebih terbaca */
+.hero-content {
+  margin-top: 80px; /* Atur jarak dari tepi atas sesuai selera */
+  text-align: center;
+  z-index: 2;
+}
+
+.hero-content p {
+  color: #1a1a1a;
+  letter-spacing: 5px;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.hero-content .title-script {
+  color: #1a1a1a; /* Warna Hitam Pekat */
+  font-size: 4rem;
+  margin: 10px 0;
+  text-shadow: none; /* Menghapus bayangan agar teks terlihat bersih */
+}
+
+.hero-date {
+  color: #1a1a1a;
+  font-weight: 400;
+  letter-spacing: 3px;
+}
+
+/* Fix untuk Mobile agar tidak terpotong address bar browser */
+@media screen and (max-width: 480px) {
+  .hero-section {
+    height: 100svh; /* Menggunakan small viewport height untuk mobile */
+  }
+
+  .hero-content .title-script {
+    font-size: 3rem;
+  }
+}
+
+/* --- MOMENTS SECTION --- */
+.moments-section {
+  position: relative;
+  padding: 80px 0;
+  width: 100%;
+  /* Menggunakan background moment_bg.png sesuai permintaanmu */
+  background-color: #bae6fd;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* Memberikan efek parallax ringan */
+}
+
+.moment-title {
+  font-family: "Parisienne", cursive;
+  font-size: 3rem;
+  margin: 40px 0;
+}
+
+.moments-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 Kolom di Desktop */
+  gap: 15px;
+
+  padding: 10px;
+}
+
+.moment-item {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Membuat foto jadi kotak sempurna */
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.moment-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+/* Efek zoom saat foto disentuh */
+.moment-item:hover img {
+  transform: scale(1.1);
+}
+
+/* Responsif Mobile (2 Kolom agar gambar tidak terlalu kecil) */
+@media screen and (max-width: 768px) {
+  .moments-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .moments-section {
+    background-attachment: scroll; /* Matikan fixed di mobile agar lebih ringan */
+    padding: 50px 0;
+  }
+}
+
+/* --- MODAL LIGHTBOX --- */
+.modal-lightbox {
+  display: none; /* Sembunyi secara default */
+  position: fixed;
+  z-index: 10000; /* Di atas segalanya */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); /* Latar hitam transparan */
+  justify-content: center;
+  align-items: center;
+  cursor: zoom-out;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 5px;
+  animation: zoomAnim 0.3s ease;
+}
+
+@keyframes zoomAnim {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* --- EVENT SECTION --- */
+.event-section {
+  padding: 80px 20px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.event-subtitle {
+  font-size: 0.9rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+}
+
+.event-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.event-card {
+  background: #fdfbf8;
+  padding: 40px 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 350px;
+  border: 1px solid #eee;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-10px);
+}
+
+.event-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.event-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #1a1a1a;
+}
+
+.event-info p {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.event-info hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 15px auto;
+  width: 50%;
+}
+
+.btn-event {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px 25px;
+  background-color: #1a1a1a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  transition: 0.3s;
+}
+
+.btn-event:hover {
+  background-color: #444;
+}
+
+/* Responsif Mobile */
+@media screen and (max-width: 768px) {
+  .event-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* --- TIME & COUNTDOWN SECTION --- */
+.time-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("../assets/time_bg.jpg"); /* Pastikan file ada di assets */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+/* Overlay agar teks tetap terbaca & background tampak pudar putih */
+.time-overlay {
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 80px 20px;
+}
+
+.countdown-modern {
+  margin: 40px 0;
+}
+
+.time-value {
+  display: block;
+  font-size: 3.5rem;
+  font-family: "Playfair Display", serif; /* Gunakan font elegan */
+  font-style: italic;
+  color: #1a1a1a;
+  line-height: 1;
+}
+
+.time-label {
+  font-size: 0.9rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #000;
+}
+
+.time-group {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.event-date-text {
+  margin: 20px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.single-event-box {
+  margin-top: 40px;
+  padding: 30px;
+  border-radius: 15px;
+}
+
+.btn-outline {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 35px;
+  border: 1.5px solid #1a1a1a;
+  color: #1a1a1a;
+  text-decoration: none;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.btn-outline:hover {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+/* Mobile Adjustments */
+@media screen and (max-width: 480px) {
+  .time-value {
+    font-size: 2.5rem;
+  }
+  .time-group {
+    gap: 15px;
+  }
+}
+
+/* --- TIME SECTION CLEAN STYLE --- */
+.time-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("../assets/time_bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  /* Pastikan tidak ada padding di sini agar overlay bisa mentok */
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.time-overlay {
+  width: 100%;
+  min-height: 100vh;
+  /* Overlay putih transparan menutup seluruh section tanpa celah */
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container di dalam overlay untuk mengatur jarak kanan-kiri konten */
+.time-content-wrapper {
+  width: 90%; /* Memberi jeda di kanan kiri (tidak mentok) */
+  max-width: 500px; /* Batas lebar maksimal agar tetap estetik di layar lebar */
+  padding: 40px 0;
+  text-align: center;
+}
+
+/* Tipografi Angka */
+.time-value {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 3.5rem;
+  color: #1a1a1a;
+  line-height: 1;
+}
+
+.time-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-top: 5px;
+  color: #000;
+}
+
+.main-unit {
+  margin-bottom: 30px;
+}
+
+.time-group {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 30px;
+}
+
+.date-display {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 80px; /* Memberi jarak ke judul acara */
+}
+
+.event-details p {
+  font-size: 1rem;
+  color: #1a1a1a;
+  margin: 5px 0;
+}
+
+/* Responsif Mobile */
+@media screen and (max-width: 480px) {
+  .time-value {
+    font-size: 2.8rem;
+  }
+  .time-group {
+    gap: 20px;
+  }
+}
+
+section,
+.container {
+  padding-top: 30px !important; /* Dari 80px kita kecilkan jadi 30px */
+  padding-bottom: 30px !important;
+}
+
+/* 2. Jeda khusus Galeri Moments */
+.moments-section {
+  padding: 40px 0 !important; /* Sesuaikan agar tetap proporsional */
+}
+
+/* 3. Jeda khusus bagian Countdown/Acara */
+.time-overlay {
+  padding: 40px 20px !important; /* Mengecilkan ruang kosong di atas & bawah countdown */
+}
+
+/* 4. Mengecilkan margin pada judul agar tidak terlalu jauh dari kontennya */
+.title-script {
+  margin-top: 10px !important;
+  margin-bottom: 20px !important;
+}
+
+/* 5. Khusus Hero Section (supaya tidak terlalu mepet ke section bawahnya) */
+.hero-section {
+  margin-bottom: 0 !important;
+}
+
+/* --- MAPS SECTION --- */
+.maps-section {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.map-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.address-text {
+  font-size: 0.9rem;
+  color: #444;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.btn-outline-small {
+  display: inline-block;
+  padding: 8px 25px;
+  border: 1px solid #1a1a1a;
+  color: #1a1a1a;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  transition: 0.3s;
+}
+
+/* --- STREAMING SECTION --- */
+.streaming-section {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.streaming-subtitle {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.btn-black {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 30px;
+  background-color: #1a1a1a;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  transition: 0.3s;
+}
+
+.btn-black:hover {
+  background-color: #444;
+}
+
+/* --- WISH SECTION --- */
+.wish-section {
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #fdfbf8;
+}
+/* Container Flex agar Sejajar */
+.streaming-flex-container {
+  display: flex;
+  justify-content: center; /* Tengah secara horizontal */
+  align-items: center; /* Sejajar secara vertikal */
+  gap: 20px; /* Jarak antar tombol dan kotak info */
+  flex-wrap: wrap; /* Agar otomatis turun ke bawah jika layar HP kekecilan */
+  margin-top: 30px;
+}
+
+/* Penyesuaian Kotak Info Zoom agar mirip screenshot */
+.zoom-info {
+  background-color: #f8f9fa;
+  padding: 15px 25px;
+  border-radius: 12px;
+  text-align: left; /* Teks di dalam kotak rata kiri */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.zoom-info p {
+  margin: 3px 0;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Responsif Mobile: Jika layar sangat sempit, mereka akan bertumpuk kembali */
+@media screen and (max-width: 600px) {
+  .streaming-flex-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .zoom-info {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.footer-section {
+  padding: 100px 20px;
+  background-color: #fff;
+  text-align: center;
+  border-top: 1px solid #f0f0f0;
+}
+
+.footer-text {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
+.footer-names {
+  font-size: 2.2rem;
+  margin: 20px 0;
+}
+
+.footer-names .and {
+  font-family: "Playfair Display", serif;
+  font-size: 1.2rem;
+  margin: 0 10px;
+  color: #b8860b;
+}
+
+.footer-credit {
+  margin-top: 50px;
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+/* --- TOMBOL MUSIK FLOATING --- */
+.music-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.9); /* Putih transparan */
+  border: 1.5px solid #1a1a1a;
+  border-radius: 50%;
+  display: none; /* Muncul setelah klik buka undangan */
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+/* Styling Ikon di Dalam Lingkaran */
+.music-btn i {
+  font-size: 1.4rem;
+  color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Animasi Putar Pelan (Efek Piringan Hitam) */
+.fa-spin-slow {
+  animation: spin-logic 3s linear infinite;
+}
+
+@keyframes spin-logic {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Keadaan saat musik dimatikan (Paused) */
+.music-btn.paused {
+  background: #f0f0f0;
+  border-color: #999;
+}
+
+.music-btn.paused i {
+  animation-play-state: paused; /* Berhenti berputar */
+  color: #999;
+}
+
+/* Hover Effect */
+.music-btn:hover {
+  transform: scale(1.1);
+  background: #ffffff;
+}
+
+/* --- GLOBAL THEME UPDATE --- */
+
+body {
+  background-color: #e0f2fe; /* Warna biru langit sangat muda untuk base */
+}
+
+/* Ubah semua section agar konsisten */
+section,
+.container,
+.moments-section,
+.wish-section,
+.footer-section {
+  background-color: #f0f9ff !important; /* Biru langit yang hampir putih agar tetap bersih */
+}
+
+/* Khusus untuk Time Overlay (Countdown) */
+.time-overlay {
+  /* Kita buat overlay birunya sedikit lebih transparan agar foto background tetap terlihat manis */
+  background-color: rgba(224, 242, 254, 0.85) !important;
+}
+
+/* Detail Zoom Info */
+.zoom-info {
+  background-color: #e0f2fe; /* Biru sedikit lebih gelap untuk kontras */
+  border: 1px solid #bae6fd;
+}
+
+/* Kartu Ucapan (Jika nanti dipasang) */
+.wish-card,
+.wish-form {
+  background: #ffffff; /* Biarkan tetap putih agar "pop up" di atas background biru */
+  border: 1px solid #bae6fd;
+}

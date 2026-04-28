@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undangan Digital - Eden</title>
+    <link rel="stylesheet" href="assets/aos.css" />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  </head>
+  <body>
+    <!--Sampul Container-->
+    <div id="welcome-screen">
+      <div class="sampul-content" data-aos="fade-up">
+        <p>The Wedding Of</p>
+
+        <h1 class="sampul-names">Luckas <br />& <br />Henny</h1>
+
+        <div class="guest-box">
+          <p style="letter-spacing: 1px; color: #555">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+          <h2 id="guest-name">Nama Tamu</h2>
+        </div>
+
+        <button class="btn-custom" onclick="openInvitation()">Buka Undangan</button>
+      </div>
+    </div>
+    <!--Akhir Sampul Container-->
+
+    <!--Header Container-->
+    <div id="main-invitation" style="display: none">
+      <div class="hero-section">
+        <div class="hero-content">
+          <p>THE WEDDING OF</p>
+          <h1 class="title-script">Luckas & Henny</h1>
+          <p class="hero-date">16 . 05 . 2026</p>
+        </div>
+      </div>
+      <!--Akhir Header Container-->
+
+      <!--Surat Container-->
+      <div class="container">
+        <section class="quote-container" data-aos="fade-up">
+          <p>"Berdua lebih baik daripada sendiri, . . . Orang yang sendirian bisa saja dikalahkan, sedangkan dua orang yang bersama-sama bisa bertahan. Tapi tali rangkap tiga tidak mudah diputuskan."</p>
+          <br />
+          <strong>Pengkhotbah 4:9, 12</strong>
+          <!--Akhir Surat Container-->
+
+          <!--Akhir Mempelai Container-->
+        </section>
+        <h2 class="title-script" data-aos="zoom-in">Calon Pengantin</h2>
+        <div class="couple-frame" data-aos="fade-up">
+          <img src="assets/pria.jpg" alt="Luckas Antony" class="couple-photo" />
+          <img src="assets/bunga.png" class="flower-decor" alt="Dekorasi Bunga" />
+        </div>
+
+        <section class="content-section" data-aos="fade-up">
+          <h3 class="name-text">Luckas Antony</h3>
+          <p>Putra pertama dari Sdr. Samuel Budianto & Sdri. Rantini</p>
+          <a href="https://instagram.com/luckas_antony" class="instagram-link">@luckas_antony</a>
+        </section>
+
+        <h2 class="title-script" style="font-size: 2rem; margin: 20px 0" data-aos="fade-up">dengan</h2>
+
+        <div class="couple-frame" data-aos="fade-up">
+          <img src="assets/wanita.jpg" alt="Henny Henny" class="couple-photo" />
+          <img src="assets/bunga.png" class="flower-decor flower-right" alt="Dekorasi Bunga" />
+        </div>
+
+        <section class="content-section" data-aos="fade-up">
+          <h3 class="name-text">Veronica Henny Widyawati</h3>
+          <p>Putri pertama dari Bapak (Alm) Souw Liang Hwie (Widodo) & Sdri. Darwati</p>
+          <a href="https://instagram.com/Veronica_henny" class="instagram-link">@Veronica_henny</a>
+        </section>
+      </div>
+    </div>
+    <!--Akhir Mempelai Container-->
+
+    <!--Fotoo Container-->
+    <section class="moments-section">
+      <div class="container">
+        <h2 class="moment-title" data-aos="zoom-in" style="color: #1a1a1a; margin-bottom: 40px">Our Moments</h2>
+
+        <div class="moments-grid">
+          <div class="moment-item" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/moment_1.png" onclick="openLightbox(this.src)" alt="Moment 1" />
+          </div>
+          <div class="moment-item" data-aos="fade-up" data-aos-delay="200">
+            <img src="assets/moment_2.jpg" onclick="openLightbox(this.src)" alt="Moment 2" />
+          </div>
+          <div class="moment-item" data-aos="fade-up" data-aos-delay="300">
+            <img src="assets/moment_3.jpg" onclick="openLightbox(this.src)" alt="Moment 3" />
+          </div>
+          <div class="moment-item" data-aos="fade-up" data-aos-delay="100">
+            <img src="assets/moment_4.jpg" onclick="openLightbox(this.src)" alt="Moment 4" />
+          </div>
+          <div class="moment-item" data-aos="fade-up" data-aos-delay="200">
+            <img src="assets/moment_5.jpg" onclick="openLightbox(this.src)" alt="Moment 5" />
+          </div>
+          <div class="moment-item" data-aos="fade-up" data-aos-delay="300">
+            <img src="assets/moment_6.jpg" onclick="openLightbox(this.src)" alt="Moment 6" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Akhir Fotoo Container-->
+
+    <!--Timee Container-->
+    <section class="time-section">
+      <div class="time-overlay">
+        <div class="time-content-wrapper" data-aos="fade-up">
+          <h2 class="title-script" style="color: #1a1a1a; font-size: 2.8rem">Acara Akan Diselenggarakan</h2>
+
+          <div id="countdown" class="countdown-modern">
+            <div class="time-unit">
+              <span id="days" class="time-value">00</span>
+              <span class="time-label">HARI</span>
+            </div>
+            <div class="time-group">
+              <div class="time-unit">
+                <span id="hours" class="time-value">00</span>
+                <span class="time-label">JAM</span>
+              </div>
+              <div class="time-unit">
+                <span id="minutes" class="time-value">00</span>
+                <span class="time-label">MENIT</span>
+              </div>
+              <div class="time-unit">
+                <span id="seconds" class="time-value">00</span>
+                <span class="time-label">DETIK</span>
+              </div>
+            </div>
+          </div>
+          <div class="single-event-box">
+            <h3 class="title-script" style="font-size: 2rem; color: #1a1a1a">Khotbah Nasihat Perkawinan</h3>
+            <p>Sabtu, 16 Mei 2026</p>
+            <p>12.00 WIB - Selesai</p>
+            <p>Balai Kerajaan Saksi-Saksi Yehuwa Semarang Barat</p>
+
+            <a
+              href="https://www.google.com/calendar/render?action=TEMPLATE&text=Khotbah+Nasihat+Perkawinan+Luckas+%26+Veronica&dates=20260516T050000Z/20260516T070000Z&location=Balai+Kerajaan+Saksi-Saksi+Yehuwa+Semarang+Barat&sf=true&output=xml"
+              target="_blank"
+              class="btn-outline"
+            >
+              Simpan Acara Ke Kalender
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Akhir Timee Container-->
+
+    <!--Maps Container-->
+    <div id="location-wrapper" class="maps-section" data-aos="fade-up">
+      <div class="container">
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d247.5062955225916!2d110.38168126129719!3d-6.997417903411838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1777390630865!5m2!1sid!2sid"
+            width="600"
+            height="450"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+        <p class="address-text"><b>Balai Kerajaan Saksi-Saksi Yehuwa Semarang Barat</b><br />Jl. Dr. Soeratmo Kavling 313 Kel. Manyaran, Kec. Semarang Barat, Kota Semarang SEMARANG—50148 JAWA TENGAH</p>
+        <a href="https://hub.jw.org/meetings/goto/entry-point/meetings?scope_kind=location&scope_id=a22d13e6-8b33-56f8-82a8-bf845fbdfa3f&eventId=bb816804-715a-42c1-9d4d-92aceb5fcaff" target="_blank" class="btn-outline-small"
+          >Lihat Lokasi</a
+        >
+      </div>
+    </div>
+    <!--Akhir Maps Container-->
+
+    <!--Streaming Container-->
+    <div id="zoom-wrapper" class="streaming-section" data-aos="fade-up">
+      <div class="container">
+        <h2 class="title-script">Live Streaming</h2>
+        <p class="streaming-subtitle">Temui kami secara virtual untuk menyaksikan acara pernikahan kami</p>
+
+        <div class="streaming-flex-container">
+          <a href="#" class="btn-black"> Menuju Streaming </a>
+
+          <div class="zoom-info">
+            <p><strong>Zoom Meeting ID:</strong> 123 456 7890</p>
+            <p><strong>Passcode:</strong> WEDDING2026</p>
+          </div>
+        </div>
+
+        <div class="ornament">
+          <img src="assets/ornament.png" alt="" style="width: 100px; margin: 40px 0" />
+        </div>
+      </div>
+    </div>
+    <!--Akhir Streaming Container-->
+
+    <!--Ucapan Container-->
+    <!--Akhir Ucapan Container-->
+
+    <!--Footer-->
+    <section class="footer-section" data-aos="fade-up">
+      <div class="container">
+        <p class="footer-text">"Inilah akhirnya tulang dari tulangku Dan daging dari dagingku."<br />Kejadian 2:23</p>
+        <h2 class="title-script">Luckas & Henny</h2>
+        <p class="footer-credit">© 2026 Eden Production</p>
+      </div>
+    </section>
+    <!--Akhir footer-->
+
+    <!--Ini bagian jangan dihapus untuk foto modal-->
+    <div id="photo-modal" class="modal-lightbox" onclick="closeLightbox()">
+      <span class="close-btn">&times;</span>
+      <img class="modal-content" id="full-image" />
+    </div>
+    <!--Akhir bagian modal foto-->
+
+    <!--Bagian jangan dihapus untuk audio-->
+    <div id="music-control" class="music-btn" onclick="toggleMusic()">
+      <i id="music-icon" class="fas fa-compact-disc fa-spin-slow"></i>
+      <audio id="wedding-music" loop>
+        <source src="assets/music.mp3" type="audio/mpeg" />
+      </audio>
+    </div>
+    <div id="player" style="position: absolute; top: -9999px; left: -9999px"></div>
+    <!--Akhir bagian Audio-->
+  </body>
+</html>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1500,
+    once: false,
+  });
+
+  // 1. Kunci scroll di awal
+  document.body.style.overflow = "hidden";
+
+  // 2. Ambil Nama Tamu dari URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const guestName = urlParams.get("to");
+  if (guestName) {
+    document.getElementById("guest-name").innerText = guestName;
+  }
+
+  // 3. Fungsi Buka Undangan
+  function openInvitation() {
+    const sampul = document.getElementById("welcome-screen");
+    const isiUndangan = document.getElementById("main-invitation");
+
+    // A. Munculkan struktur isi undangan
+    if (isiUndangan) {
+      isiUndangan.style.display = "block";
+    }
+
+    // B. Jalankan animasi geser sampul
+    if (sampul) {
+      sampul.classList.add("hidden-sampul");
+    }
+
+    // C. Buka kunci scroll
+    document.body.style.overflow = "auto";
+
+    // D. INISIALISASI AOS SEKARANG (Kunci agar animasi pas scroll)
+    // Kita hancurkan inisialisasi lama (jika ada) dan buat baru setelah konten muncul
+    setTimeout(() => {
+      window.scrollTo(0, 0); // Pastikan balik ke atas dulu
+
+      AOS.init({
+        duration: 1500, // Kecepatan animasi
+        once: false, // Ubah ke false jika ingin animasi berulang saat scroll up/down
+        mirror: false,
+        anchorPlacement: "top-bottom", // Animasi dipicu saat bagian atas elemen menyentuh bawah layar
+      });
+
+      AOS.refresh(); // Segarkan perhitungan posisi elemen
+    }, 500);
+  }
+
+  function openLightbox(src) {
+    document.getElementById("photo-modal").style.display = "flex";
+    document.getElementById("full-image").src = src;
+    // Kunci scroll saat foto dibuka agar tidak bergeser
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    document.getElementById("photo-modal").style.display = "none";
+    // Kembalikan scroll setelah foto ditutup
+    document.body.style.overflow = "auto";
+  }
+
+  // Script Countdown
+
+  const weddingDay = new Date("May 16, 2026 09:00:00").getTime();
+
+  setInterval(function () {
+    const now = new Date().getTime();
+    const diff = weddingDay - now;
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = d;
+    document.getElementById("hours").innerText = h;
+    document.getElementById("minutes").innerText = m;
+    document.getElementById("seconds").innerText = s;
+  }, 1000);
+
+  document.getElementById("wish-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const message = document.getElementById("message").value;
+
+    if (name && message) {
+      const wishDisplay = document.getElementById("wish-display");
+
+      // Buat elemen kartu ucapan baru
+      const newWish = document.createElement("div");
+      newWish.className = "wish-card";
+      newWish.innerHTML = `<strong>${name}</strong><p>${message}</p>`;
+
+      // Tambahkan ke paling atas daftar
+      wishDisplay.insertBefore(newWish, wishDisplay.firstChild);
+
+      // Reset Form
+      document.getElementById("wish-form").reset();
+    }
+  });
+</script>
+
+<!--Script untuk Audio-->
+<script>
+  // 1. Load YouTube IFrame API secara asinkron
+  var tag = document.createElement("script");
+  tag.src = "https://www.youtube.com/iframe_api";
+  var firstScriptTag = document.getElementsByTagName("script")[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  var player;
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player("player", {
+      height: "0",
+      width: "0",
+      videoId: "lnuFWMnyKk0", // GANTI DENGAN ID VIDEO YOUTUBE
+      playerVars: {
+        autoplay: 0,
+        loop: 1,
+        playlist: "lnuFWMnyKk0", // Diperlukan agar bisa looping
+      },
+      events: {
+        onReady: onPlayerReady,
+      },
+    });
+  }
+
+  function onPlayerReady(event) {
+    // Player siap, tapi jangan play dulu sampai tombol diklik
+  }
+
+  // 2. Modifikasi fungsi openInvitation kamu yang lama
+  function openInvitation() {
+    const sampul = document.getElementById("welcome-screen");
+    const isiUndangan = document.getElementById("main-invitation");
+
+    if (isiUndangan) {
+      isiUndangan.style.display = "block";
+    }
+    if (sampul) {
+      sampul.classList.add("hidden-sampul");
+    }
+
+    document.body.style.overflow = "auto";
+
+    // --- PUTAR YOUTUBE DI SINI ---
+    if (player && player.playVideo) {
+      player.playVideo();
+      document.getElementById("music-control").style.display = "flex";
+    }
+
+    setTimeout(() => {
+      AOS.init({ duration: 1500, once: true });
+      AOS.refresh();
+    }, 600);
+  }
+
+  // 3. Fungsi toggle untuk tombol musik
+  function toggleMusic() {
+    const icon = document.getElementById("music-icon");
+    if (player.getPlayerState() === 1) {
+      // 1 berarti sedang playing
+      player.pauseVideo();
+      icon.classList.replace("fa-music", "fa-volume-mute");
+    } else {
+      player.playVideo();
+      icon.classList.replace("fa-volume-mute", "fa-music");
+    }
+  }
+</script>
+
+<!--Script Zoom dan Lokasi-->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const guestName = urlParams.get("to");
+    const accessKey = urlParams.get("loc"); // Kita ambil dari parameter 'loc' agar nama tamu tetap bersih
+
+    const locationSection = document.getElementById("location-wrapper");
+    const zoomSection = document.getElementById("zoom-wrapper");
+
+    // Sembunyikan keduanya secara default untuk keamanan
+    if (locationSection) locationSection.style.display = "none";
+    if (zoomSection) zoomSection.style.display = "none";
+
+    // Logika hanya berjalan jika ada nama tamu (?to=)
+    if (guestName) {
+      // Cek apakah token akses sesuai
+      if (accessKey === "irfsd-fasew") {
+        // Tampilkan ZOOM saja
+        if (zoomSection) zoomSection.style.display = "block";
+        console.log("Akses Zoom Aktif");
+      } else if (accessKey === "qxltp-zmnbr") {
+        // Tampilkan LOKASI saja
+        if (locationSection) locationSection.style.display = "block";
+        console.log("Akses Lokasi Fisik Aktif");
+      } else {
+        // Jika tidak ada token atau token salah, biarkan tetap tersembunyi
+        console.log("Mode Tamu Umum: Informasi rahasia disembunyikan");
+      }
+    }
+  });
+</script>
