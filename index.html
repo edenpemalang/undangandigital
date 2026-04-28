@@ -3,62 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Animated Dark Blog</title>
+    <title>Undangan Digital - Romeo & Juliet</title>
     
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-    <div class="container">
+    <audio id="myAudio" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+    </audio>
+
+    <section class="hero">
+        <h1 data-aos="fade-up">R & J</h1>
+        <p data-aos="fade-up" data-aos-delay="300">The Wedding of Romeo & Juliet</p>
+        <a href="#isi" class="btn-open" onclick="playMusic()">Buka Undangan</a>
+    </section>
+
+    <div class="content-section" id="isi">
         
-        <header>
-            <h1>My Dark Blog</h1>
-        </header>
+        <div class="card" data-aos="zoom-in">
+            <h2>Mempelai Pria</h2>
+            <p>Romeo Montague</p>
+            <p>Putra dari Bpk. Montague & Ibu Montague</p>
+        </div>
 
-        <main>
-            
-            <article class="post-card">
-                <h2>Judul Artikel Pertama Anda</h2>
-                <div class="post-meta">
-                    <span>Oleh Admin</span>
-                    <span>|</span>
-                    <span>25 Maret 2026</span>
-                </div>
-                <p class="post-snippet">
-                    Ini adalah ringkasan teks untuk artikel pertama Anda. Gunakan bagian ini untuk menarik perhatian pembaca. Tampilan ini dibuat minimalis dengan warna gelap yang nyaman di mata...
-                </p>
-                <a href="#" class="read-more">Baca Selengkapnya</a>
-            </article>
+        <div class="card" data-aos="zoom-in" data-aos-delay="200">
+            <h2>Mempelai Wanita</h2>
+            <p>Juliet Capulet</p>
+            <p>Putri dari Bpk. Capulet & Ibu Capulet</p>
+        </div>
 
-            <article class="post-card">
-                <h2>Membuat Website Statis di GitHub Pages</h2>
-                <div class="post-meta">
-                    <span>Oleh Penulis</span>
-                    <span>|</span>
-                    <span>20 Maret 2026</span>
-                </div>
-                <p class="post-snippet">
-                    Belajar bagaimana cara hosting website HTML dan CSS Anda secara gratis menggunakan GitHub Pages. Prosesnya cepat, mudah, dan sangat cocok untuk pemula yang ingin menampilkan portofolio...
-                </p>
-                <a href="#" class="read-more">Baca Selengkapnya</a>
-            </article>
-
-            <article class="post-card">
-                <h2>Menambahkan Efek Animasi CSS</h2>
-                <div class="post-meta">
-                    <span>Oleh Techie</span>
-                    <span>|</span>
-                    <span>15 Maret 2026</span>
-                </div>
-                <p class="post-snippet">
-                    Tingkatkan pengalaman pengguna website Anda dengan menambahkan animasi CSS yang halus. Kita akan membahas transisi, transform, dan bagaimana membuat kartu artikel terlihat interaktif saat disentuh kursor...
-                </p>
-                <a href="#" class="read-more">Baca Selengkapnya</a>
-            </article>
-
-        </main>
+        <div class="card" data-aos="fade-right">
+            <h2>Waktu & Tempat</h2>
+            <p>Sabtu, 28 April 2026</p>
+            <p>Gedung Agung, Jakarta</p>
+            <a href="https://maps.google.com" class="btn-open">Lihat Lokasi</a>
+        </div>
 
     </div>
 
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1200 }); // Inisialisasi animasi scroll
+
+        function playMusic() {
+            var audio = document.getElementById("myAudio");
+            audio.play();
+        }
+    </script>
 </body>
 </html>
