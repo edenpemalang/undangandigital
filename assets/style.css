@@ -1,0 +1,121 @@
+/* --- assets/style.css --- */
+
+/* 1. Reset Global & Font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font bersih mirip blogspot */
+}
+
+/* 2. Warna Dasar Body (Latar Belakang Gelap) */
+body {
+    background-color: #1a1a1a; /* Warna gelap blogspot tersebut */
+    color: #e0e0e0; /* Warna teks abu terang agar nyaman dibaca */
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* 3. Container Utama (Membatasi Lebar Tengah) */
+.container {
+    max-width: 900px;
+    margin: 0 auto; /* Mengetengahkan konten */
+}
+
+/* 4. Header / Judul Blog */
+header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #333;
+}
+
+header h1 {
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* 5. Styling Daftar Artikel (Main Content) */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Jarak antar artikel */
+}
+
+/* 6. Kotak Artikel (INI BAGIAN ANIMASINYA) */
+.post-card {
+    background-color: #242424; /* Sedikit lebih terang dari body */
+    padding: 25px;
+    border-radius: 8px; /* Sudut melengkung */
+    border: 1px solid #333;
+    
+    /* PROPERTI TRANSISI (PENTING UNTUK ANIMASI HALUS) */
+    transition: all 0.4s ease; /* Semua perubahan properti akan halus selama 0.4 detik */
+    cursor: pointer;
+    position: relative;
+    top: 0;
+}
+
+/* 7. EFEK ANIMASI SAAT HOVER (KURSOR MENYENTUH) */
+.post-card:hover {
+    background-color: #2a2a2a; /* Warna background berubah sedikit */
+    
+    /* 1. Animasi Bayangan (Glow/Drop Shadow) */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    
+    /* 2. Animasi Mengangkat (Transform Translate) */
+    transform: translateY(-8px); /* Mengangkat kotak ke atas 8px */
+    
+    /* 3. Animasi Membesar Sedikit (Transform Scale) */
+    transform: translateY(-8px) scale(1.01); /* Mengangkat DAN membesarkan 1% */
+
+    /* Menambahkan border glow tipis */
+    border-color: #444;
+}
+
+/* 8. Elemen Dalam Artikel */
+.post-card h2 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+/* Warna judul berubah saat kartu di-hover */
+.post-card:hover h2 {
+    color: #00bcd4; /* Contoh warna aksen (cyan) saat di-hover, ganti jika perlu */
+}
+
+.post-meta {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+.post-snippet {
+    color: #b0b0b0;
+    margin-bottom: 20px;
+}
+
+/* Tombol Read More */
+.read-more {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: transparent;
+    border: 2px solid #00bcd4; /* Warna aksen */
+    color: #00bcd4;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.read-more:hover {
+    background-color: #00bcd4;
+    color: #1a1a1a;
+}
