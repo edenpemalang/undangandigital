@@ -1,121 +1,78 @@
 /* --- assets/style.css --- */
-
-/* 1. Reset Global & Font */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font bersih mirip blogspot */
+    font-family: 'Playfair Display', serif; /* Font klasik untuk undangan */
 }
 
-/* 2. Warna Dasar Body (Latar Belakang Gelap) */
 body {
-    background-color: #1a1a1a; /* Warna gelap blogspot tersebut */
-    color: #e0e0e0; /* Warna teks abu terang agar nyaman dibaca */
-    line-height: 1.6;
-    padding: 20px;
-}
-
-/* 3. Container Utama (Membatasi Lebar Tengah) */
-.container {
-    max-width: 900px;
-    margin: 0 auto; /* Mengetengahkan konten */
-}
-
-/* 4. Header / Judul Blog */
-header {
+    background-color: #0f0f0f;
+    color: #d4af37; /* Warna Gold untuk teks */
     text-align: center;
-    margin-bottom: 50px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #333;
+    overflow-x: hidden;
 }
 
-header h1 {
-    color: #ffffff;
-    font-size: 2.5rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* 5. Styling Daftar Artikel (Main Content) */
-main {
+/* Hero Section (Halaman Depan) */
+.hero {
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Jarak antar artikel */
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
 }
 
-/* 6. Kotak Artikel (INI BAGIAN ANIMASINYA) */
-.post-card {
-    background-color: #242424; /* Sedikit lebih terang dari body */
-    padding: 25px;
-    border-radius: 8px; /* Sudut melengkung */
-    border: 1px solid #333;
-    
-    /* PROPERTI TRANSISI (PENTING UNTUK ANIMASI HALUS) */
-    transition: all 0.4s ease; /* Semua perubahan properti akan halus selama 0.4 detik */
-    cursor: pointer;
-    position: relative;
-    top: 0;
-}
-
-/* 7. EFEK ANIMASI SAAT HOVER (KURSOR MENYENTUH) */
-.post-card:hover {
-    background-color: #2a2a2a; /* Warna background berubah sedikit */
-    
-    /* 1. Animasi Bayangan (Glow/Drop Shadow) */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    
-    /* 2. Animasi Mengangkat (Transform Translate) */
-    transform: translateY(-8px); /* Mengangkat kotak ke atas 8px */
-    
-    /* 3. Animasi Membesar Sedikit (Transform Scale) */
-    transform: translateY(-8px) scale(1.01); /* Mengangkat DAN membesarkan 1% */
-
-    /* Menambahkan border glow tipis */
-    border-color: #444;
-}
-
-/* 8. Elemen Dalam Artikel */
-.post-card h2 {
-    color: #ffffff;
-    font-size: 1.8rem;
+.hero h1 {
+    font-size: 3.5rem;
     margin-bottom: 10px;
-    transition: color 0.3s ease;
+    letter-spacing: 5px;
+    animation: fadeInDown 2s ease;
 }
 
-/* Warna judul berubah saat kartu di-hover */
-.post-card:hover h2 {
-    color: #00bcd4; /* Contoh warna aksen (cyan) saat di-hover, ganti jika perlu */
+/* Card Section */
+.content-section {
+    padding: 80px 20px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.post-meta {
-    font-size: 0.85rem;
-    color: #888;
-    margin-bottom: 15px;
-    display: flex;
-    gap: 15px;
+.card {
+    background: #1a1a1a;
+    padding: 40px;
+    border-radius: 15px;
+    border: 1px solid #d4af37;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
 }
 
-.post-snippet {
-    color: #b0b0b0;
-    margin-bottom: 20px;
+.card:hover {
+    transform: scale(1.02); /* Animasi membesar tipis saat disentuh */
 }
 
-/* Tombol Read More */
-.read-more {
-    display: inline-block;
-    padding: 8px 16px;
-    background-color: transparent;
-    border: 2px solid #00bcd4; /* Warna aksen */
-    color: #00bcd4;
+.btn-open {
+    padding: 12px 30px;
+    background: #d4af37;
+    color: #000;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 25px;
     font-weight: bold;
-    transition: all 0.3s ease;
+    margin-top: 20px;
+    display: inline-block;
+    transition: 0.3s;
 }
 
-.read-more:hover {
-    background-color: #00bcd4;
-    color: #1a1a1a;
+.btn-open:hover {
+    background: #fff;
+    box-shadow: 0 0 20px #d4af37;
+}
+
+/* Animasi Sederhana */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
