@@ -3,55 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Undangan Digital - Romeo & Juliet</title>
+    <title>Undangan Digital - Eden</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
-    <audio id="myAudio" loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
-    </audio>
-
-    <section class="hero">
-        <h1 data-aos="fade-up">R & J</h1>
-        <p data-aos="fade-up" data-aos-delay="300">The Wedding of Romeo & Juliet</p>
-        <a href="#isi" class="btn-open" onclick="playMusic()">Buka Undangan</a>
-    </section>
-
-    <div class="content-section" id="isi">
+    <div class="container">
         
-        <div class="card" data-aos="zoom-in">
-            <h2>Mempelai Pria</h2>
-            <p>Romeo Montague</p>
-            <p>Putra dari Bpk. Montague & Ibu Montague</p>
+        <section class="quote-container" data-aos="fade-up">
+            <p>"Dan Diantara tanda-tanda kebesaran-Nya ialah diciptakan-Nya untukmu pasangan hidup dari jenismu sendiri supaya kamu mendapatkan ketenangan hati dan dijadikan-Nya kasih sayang diantara kamu, sesungguhnya yang demikian menjadi tanda-tanda kebesaran-Nya bagi orang-orang yang berfikir."</p>
+            <br>
+            <strong>(Surat Ar-Ruum:21)</strong>
+        </section>
+
+        <h2 class="title-script" data-aos="zoom-in">Calon Pengantin</h2>
+
+        <div class="couple-frame" data-aos="fade-up">
+            <img src="https://blogger.googleusercontent.com/img/a/AVvXsEictsSzrrDvpVeD003sTHjCAqr52NdwHCtcSrqYuNlzK5qqcQWadodqBjnpwfTmuDv0cgQGAMjkry2ZkbuDANNCivqmOItEhz3D8SmiwjvDBms6-dkhUt3E6W8LG6I3OWcR9AEOrYzWaAbl6KS_bLHO5EJk4OwtpKAFwy7qBADn-LXfWg2fb3Z6uuwcRoU" alt="Mempelai" class="couple-photo">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh5K3-oMUCZ5yCROem--fNMuWXqGEqaVGSqpVXGhCwFXHjLEQSrX-yF8UVvTnNJjm3ePUq_HNWrfjbS9YXdd6xh_OoNhJymWDpwSLj0AMYF_inuM0FPkOOco3fdZdu5ajcZp_6ruivd4mS5NX04gHrDkFBmXr04gHrDkFBmXr04gHrDkFBmXr04gHrDkFBmXr04gHrDkFBmXr0" class="flower-decor" alt="flower">
         </div>
 
-        <div class="card" data-aos="zoom-in" data-aos-delay="200">
-            <h2>Mempelai Wanita</h2>
-            <p>Juliet Capulet</p>
-            <p>Putri dari Bpk. Capulet & Ibu Capulet</p>
-        </div>
+        <section class="content-section" data-aos="fade-up">
+            <h3 style="margin-top: 20px; font-size: 1.5rem;">Veronica Henny Widyawati</h3>
+            <p>Putri kedua dari Bapak H. John Doe & Ibu HJ Jan Doe S.Pd</p>
+            <a href="https://instagram.com/eden_username" class="instagram-link">@instagram_username</a>
+        </section>
 
-        <div class="card" data-aos="fade-right">
-            <h2>Waktu & Tempat</h2>
-            <p>Sabtu, 28 April 2026</p>
-            <p>Gedung Agung, Jakarta</p>
-            <a href="https://maps.google.com" class="btn-open">Lihat Lokasi</a>
-        </div>
+        <br><br>
+        <a href="#" class="btn-rsvp" data-aos="fade-up">Kirim Ucapan</a>
 
     </div>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 1200 }); // Inisialisasi animasi scroll
-
-        function playMusic() {
-            var audio = document.getElementById("myAudio");
-            audio.play();
-        }
+        AOS.init({
+            duration: 1500,
+            once: true
+        });
     </script>
 </body>
 </html>
