@@ -7,23 +7,61 @@
     <link rel="stylesheet" href="assets/aos.css" />
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+    <style>
+#welcome-screen {
+    /* Memanggil gambar latar belakang */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('assets/sampul_bg.jpg');
+    
+    /* Agar gambar menutupi seluruh layar */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Pengaturan posisi konten agar di tengah */
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white; /* Mengubah teks utama menjadi putih agar kontras */
+}
+
+/* Opsional: Memastikan kotak tamu tetap terbaca jika background foto ramai */
+.guest-box {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 300px;
+}
+
+.sampul-names {
+    font-size: 3rem;
+    margin: 20px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Bayangan teks agar lebih jelas */
+}
+</style>
+    
   </head>
   <body>
     <!--Sampul Container-->
-    <div id="welcome-screen">
-      <div class="sampul-content" data-aos="fade-up">
-        <p>The Wedding Of</p>
+<div id="welcome-screen">
+  <div class="sampul-content" data-aos="fade-up">
+    <p>The Wedding Of</p>
 
-        <h1 class="sampul-names">Luckas <br />& <br />Henny</h1>
+    <h1 class="sampul-names">Luckas <br />& <br />Henny</h1>
 
-        <div class="guest-box">
-          <p style="letter-spacing: 1px; color: #555">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
-          <h2 id="guest-name">Nama Tamu</h2>
-        </div>
-
-        <button class="btn-custom" onclick="openInvitation()">Buka Undangan</button>
-      </div>
+    <div class="guest-box">
+      <p style="letter-spacing: 1px; color: #555">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+      <h2 id="guest-name">Nama Tamu</h2>
     </div>
+
+    <button class="btn-custom" onclick="openInvitation()">Buka Undangan</button>
+  </div>
+</div>
     <!--Akhir Sampul Container-->
 
     <!--Header Container-->
@@ -67,9 +105,9 @@
         </div>
 
         <section class="content-section" data-aos="fade-up">
-          <h3 class="name-text">Veronica Henny Widyawati</h3>
+          <h3 class="name-text">Varonica Henny Widyawati</h3>
           <p>Putri pertama dari Bapak (Alm) Souw Liang Hwie (Widodo) & Sdri. Darwati</p>
-          <a href="https://instagram.com/Veronica_henny" class="instagram-link">@Veronica_henny</a>
+          <a href="https://instagram.com/Varonica_henny" class="instagram-link">@Varonica_henny</a>
         </section>
       </div>
     </div>
@@ -137,7 +175,7 @@
             <p>Balai Kerajaan Saksi-Saksi Yehuwa Semarang Barat</p>
 
             <a
-              href="https://www.google.com/calendar/render?action=TEMPLATE&text=Khotbah+Nasihat+Perkawinan+Luckas+%26+Veronica&dates=20260516T050000Z/20260516T070000Z&location=Balai+Kerajaan+Saksi-Saksi+Yehuwa+Semarang+Barat&sf=true&output=xml"
+              href="https://www.google.com/calendar/render?action=TEMPLATE&text=Khotbah+Nasihat+Perkawinan+Luckas+%26+Varonica&dates=20260516T050000Z/20260516T070000Z&location=Balai+Kerajaan+Saksi-Saksi+Yehuwa+Semarang+Barat&sf=true&output=xml"
               target="_blank"
               class="btn-outline"
             >
@@ -196,7 +234,7 @@
     <!--Sumbangan Container-->
 <section id="gift" class="gift-section" style="padding: 60px 20px; text-align: center; background-color: #f9f9f9;">
     <div class="container">
-        <h2 style="font-family: 'Georgia', serif; margin-bottom: 10px;">Kirim Kado</h2>
+        <h2 class="moment-title" data-aos="zoom-in" style="color: #1a1a1a; margin-bottom: 10px;">Kirim Kado</h2>
         <p style="margin-bottom: 40px;">Doa restu Anda merupakan hadiah terindah, namun jika Anda ingin memberikan tanda kasih, dapat melalui nomor rekening berikut:</p>
 
         <div class="gift-cards" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
@@ -459,4 +497,14 @@
       }
     }
   });
+</script>
+<script>
+function copyToClipboard(id) {
+    const text = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(text).then(() => {
+        alert("Nomor rekening berhasil disalin: " + text);
+    }).catch(err => {
+        console.error('Gagal menyalin: ', err);
+    });
+}
 </script>
