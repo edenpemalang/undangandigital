@@ -34,6 +34,33 @@
     display: none; /* Matikan jika ada class ini yang membawa warna biru */
 }
 </style>
+<style>
+/* Menghapus warna biru di seluruh body dan elemen utama */
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: white; /* Ganti biru default jadi putih/bersih */
+}
+
+/* Bagian Pertama setelah klik Buka Undangan */
+#home, .hero-section, main section:first-of-type {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    background: url('assets/sampul_bg.jpg') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Pastikan welcome screen benar-benar hilang tanpa menyisakan space */
+#welcome-screen.hidden {
+    display: none !important;
+}
+</style>
+    
   </head>
   
   <body>
