@@ -1,547 +1,179 @@
 <!doctype html>
 <html lang="id">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Undangan Digital - Eden</title>
-    <link rel="stylesheet" href="assets/aos.css" />
+    <title>Undangan Digital - Luckas & Henny</title>
+    
+    <!-- CSS External -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-<style>
-  /* Menjamin modal benar-benar sembunyi saat startup */
-  #photo-modal {
-    display: none !important;
-  }
-</style>
-<style>
-#welcome-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: #fdfbf8; /* Warna krem netral agar estetik */
-    display: flex; /* Memastikan konten muncul di tengah */
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; /* Pastikan angka ini paling tinggi */
-    transition: transform 1.3s ease, visibility 1.3s;
-}
+</head>
+<body>
 
-/* Class untuk menyembunyikan sampul saat diklik */
-.hidden-sampul {
-    transform: translateY(-100%);
-    visibility: hidden;
-    pointer-events: none; /* Agar klik tembus ke galeri di bawahnya */
-}
-
-/* Bingkai Foto Melengkung (Arch) */
-.photo-frame {
-    width: 200px;
-    height: 280px;
-    margin: 0 auto 20px;
-    border: 5px solid #fff;
-    border-radius: 100px 100px 10px 10px;
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.photo-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Responsif Mobile agar tidak terlalu panjang */
-@media screen and (max-width: 480px) {
-    .photo-frame {
-        width: 160px;
-        height: 230px;
-    }
-    .sampul-names {
-        font-size: 2.2rem !important;
-    }
-}
-
-</style>
-    
-  </head>
-  
-  <body>
-<!-- Sampul Container -->
-<div id="welcome-screen">
-    <div class="sampul-content" data-aos="fade-up">
-        <!-- Bingkai Foto Arch -->
-        <div class="photo-frame">
-            <img src="assets/sampul_bg.jpg" alt="Luckas & Henny">
-        </div>
-
-        <h1 class="sampul-names">Luckas & Henny</h1>
-
-        <div class="guest-box">
-            <p>Kepada Yth. Ibu/Bapak/Saudara/i:</p>
-            <h2 id="guest-name">Nama Tamu</h2>
-        </div>
-
-        <button class="btn-custom" onclick="openInvitation()">
-            <i class="fa-solid fa-envelope-open"></i> BUKA UNDANGAN
-        </button>
-        
-        <p class="footer-note">Mohon maaf apabila ada kesalahan pada penulisan nama & gelar</p>
-    </div>
-</div>
-    <!--Akhir Sampul Container-->
-
-    <!--Header Container-->
-    <div id="main-invitation" style="display: none">
-      <div class="hero-section">
-        <div class="hero-content">
-          <p>THE WEDDING OF</p>
-          <h1 class="title-script">Luckas & Henny</h1>
-          <p class="hero-date">16 . 05 . 2026</p>
-        </div>
-      </div>
-      <!--Akhir Header Container-->
-
-      <!--Surat Container-->
-      <div class="container">
-        <section class="quote-container" data-aos="fade-up">
-          <p>"Berdua lebih baik daripada sendiri, . . . Orang yang sendirian bisa saja dikalahkan, sedangkan dua orang yang bersama-sama bisa bertahan. Tapi tali rangkap tiga tidak mudah diputuskan."</p>
-          <br />
-          <strong>Pengkhotbah 4:9, 12</strong>
-          <!--Akhir Surat Container-->
-
-          <!--Akhir Mempelai Container-->
-        </section>
-        <h2 class="title-script" data-aos="zoom-in">Calon Pengantin</h2>
-        <div class="couple-frame" data-aos="fade-up">
-          <img src="assets/pria.jpg" alt="Luckas Antony" class="couple-photo" />
-          <img src="assets/bunga.png" class="flower-decor" alt="Dekorasi Bunga" />
-        </div>
-
-        <section class="content-section" data-aos="fade-up">
-          <h3 class="name-text">Luckas Antony</h3>
-          <p>Putra kedua dari Sdr. Samuel Budianto & Sdri. Rantini</p>
-          <a href="https://instagram.com/luckas_antony" class="instagram-link">@luckas_antony</a>
-        </section>
-
-        <h2 class="title-script" style="font-size: 2rem; margin: 20px 0" data-aos="fade-up">dengan</h2>
-
-        <div class="couple-frame" data-aos="fade-up">
-          <img src="assets/wanita.jpg" alt="Henny Henny" class="couple-photo" />
-          <img src="assets/bunga.png" class="flower-decor flower-right" alt="Dekorasi Bunga" />
-        </div>
-
-        <section class="content-section" data-aos="fade-up">
-          <h3 class="name-text">Varonica Henny Widyawati</h3>
-          <p>Putri pertama dari Bapak (Alm) Souw Liang Hwie (Widodo) & Sdri. Darwati</p>
-          <a href="https://instagram.com/Varonica_henny" class="instagram-link">@Varonica_henny</a>
-        </section>
-      </div>
-    </div>
-    <!--Akhir Mempelai Container-->
-
-    <!--Fotoo Container-->
-    <section class="moments-section">
-      <div class="container">
-        <h2 class="moment-title" data-aos="zoom-in" style="color: #1a1a1a; margin-bottom: 40px">Our Moments</h2>
-
-<div class="moments-grid">
-  <div class="moment-item" data-aos="fade-up" data-aos-delay="100">
-    <img src="assets/moment_1.png" onclick="openLightbox(this.src)" alt="Moment 1" />
-  </div>
-  <div class="moment-item" data-aos="fade-up" data-aos-delay="200">
-    <img src="assets/moment_2.jpg" onclick="openLightbox(this.src)" alt="Moment 2" />
-  </div>
-  <div class="moment-item" data-aos="fade-up" data-aos-delay="300">
-    <img src="assets/moment_3.jpg" onclick="openLightbox(this.src)" alt="Moment 3" />
-  </div>
-  <div class="moment-item" data-aos="fade-up" data-aos-delay="400">
-    <img src="assets/moment_4.jpg" onclick="openLightbox(this.src)" alt="Moment 4" />
-  </div>
-  <div class="moment-item" data-aos="fade-up" data-aos-delay="100">
-    <img src="assets/moment_5.jpg" onclick="openLightbox(this.src)" alt="Moment 5" />
-  </div>
-  <div class="moment-item" data-aos="fade-up" data-aos-delay="200">
-    <img src="assets/moment_6.jpg" onclick="openLightbox(this.src)" alt="Moment 6" />
-  </div>
-  <div class="moment-item" data-aos="fade-up" data-aos-delay="300">
-    <img src="assets/moment_7.jpg" onclick="openLightbox(this.src)" alt="Moment 7" />
-  </div>
-  <div class="moment-item" data-aos="fade-up" data-aos-delay="400">
-    <img src="assets/moment_8.png" onclick="openLightbox(this.src)" alt="Moment 8" />
-  </div>
-</div>
-      </div>
-    </section>
-    <!--Akhir Fotoo Container-->
-
-    <!--Timee Container-->
-    <section class="time-section">
-      <div class="time-overlay">
-        <div class="time-content-wrapper" data-aos="fade-up">
-          <h2 class="title-script" style="color: #1a1a1a; font-size: 2.8rem">Acara Akan Diselenggarakan</h2>
-
-          <div id="countdown" class="countdown-modern">
-            <div class="time-unit">
-              <span id="days" class="time-value">00</span>
-              <span class="time-label">HARI</span>
+    <!-- SECTION 1: WELCOME SCREEN (SAMPUL) -->
+    <div id="welcome-screen">
+        <div class="sampul-content" data-aos="fade-up">
+            <div class="photo-frame">
+                <img src="assets/sampul_bg.jpg" alt="Luckas & Henny">
             </div>
-            <div class="time-group">
-              <div class="time-unit">
-                <span id="hours" class="time-value">00</span>
-                <span class="time-label">JAM</span>
-              </div>
-              <div class="time-unit">
-                <span id="minutes" class="time-value">00</span>
-                <span class="time-label">MENIT</span>
-              </div>
-              <div class="time-unit">
-                <span id="seconds" class="time-value">00</span>
-                <span class="time-label">DETIK</span>
-              </div>
+
+            <h1 class="sampul-names">Luckas & Henny</h1>
+
+            <div class="guest-box">
+                <p>Kepada Yth. Ibu/Bapak/Saudara/i:</p>
+                <h2 id="guest-name">Nama Tamu</h2>
             </div>
-          </div>
-          <div class="single-event-box">
-            <h3 class="title-script" style="font-size: 2rem; color: #1a1a1a">Khotbah Nasihat Perkawinan</h3>
-            <p>Sabtu, 16 Mei 2026</p>
-            <p>12.00 WIB - Selesai</p>
-            <p>Balai Kerajaan Saksi-Saksi Yehuwa Semarang Barat</p>
 
-            <a
-              href="https://www.google.com/calendar/render?action=TEMPLATE&text=Khotbah+Nasihat+Perkawinan+Luckas+%26+Varonica&dates=20260516T050000Z/20260516T070000Z&location=Balai+Kerajaan+Saksi-Saksi+Yehuwa+Semarang+Barat&sf=true&output=xml"
-              target="_blank"
-              class="btn-outline"
-            >
-              Simpan Acara Ke Kalender
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!--Akhir Timee Container-->
-
-    <!--Maps Container-->
-    <div id="location-wrapper" class="maps-section" data-aos="fade-up">
-      <div class="container">
-        <div class="map-container">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d247.5062955225916!2d110.38168126129719!3d-6.997417903411838!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1777390630865!5m2!1sid!2sid"
-            width="600"
-            height="450"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
-        <p class="address-text"><b>Balai Kerajaan Saksi-Saksi Yehuwa Semarang Barat</b><br />Jl. Dr. Soeratmo Kavling 313 Kel. Manyaran, Kec. Semarang Barat, Kota Semarang SEMARANG—50148 JAWA TENGAH</p>
-        <a href="https://hub.jw.org/meetings/goto/entry-point/meetings?scope_kind=location&scope_id=a22d13e6-8b33-56f8-82a8-bf845fbdfa3f&eventId=bb816804-715a-42c1-9d4d-92aceb5fcaff" target="_blank" class="btn-outline-small"
-          >Lihat Lokasi</a
-        >
-      </div>
-    </div>
-    <!--Akhir Maps Container-->
-
-    <!--Streaming Container-->
-    <div id="zoom-wrapper" class="streaming-section" data-aos="fade-up">
-      <div class="container">
-        <h2 class="title-script">Live Streaming</h2>
-        <p class="streaming-subtitle">Temui kami secara virtual untuk menyaksikan acara pernikahan kami</p>
-
-        <div class="streaming-flex-container">
-          <a href="#" class="btn-black"> Menuju Streaming </a>
-
-          <div class="zoom-info">
-            <p><strong>Zoom Meeting ID:</strong> 123 456 7890</p>
-            <p><strong>Passcode:</strong> WEDDING2026</p>
-          </div>
-        </div>
-
-        <div class="ornament">
-          <img src="assets/ornament.png" alt="" style="width: 100px; margin: 40px 0" />
-        </div>
-      </div>
-    </div>
-    <!--Akhir Streaming Container-->
-
-    <!--Sumbangan Container-->
-<section id="gift" class="gift-section" style="padding: 60px 20px; text-align: center; background-color: #f9f9f9;">
-    <div class="container">
-        <h2 class="moment-title" data-aos="zoom-in" style="color: #1a1a1a; margin-bottom: 10px;">Kirim Kado</h2>
-        <p style="margin-bottom: 40px;">Doa restu Anda merupakan hadiah terindah, namun jika Anda ingin memberikan tanda kasih, dapat melalui nomor rekening berikut:</p>
-
-        <div class="gift-cards" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+            <button class="btn-custom" onclick="openInvitation()">
+                <i class="fa-solid fa-envelope-open"></i> BUKA UNDANGAN
+            </button>
             
-            <!-- Bank Card 1 -->
-            <div class="card" style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); min-width: 280px;">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" alt="Logo Bank" style="height: 30px; margin-bottom: 15px;">
-                <p style="font-weight: bold; margin: 5px 0;">Nomor Rekening:</p>
-                <p id="rek1" style="font-size: 1.2rem; letter-spacing: 1px;">3600 2184 59</p>
-                <p style="color: #666;">a.n. Varonika Henny Widiawati</p>
-                <button onclick="copyToClipboard('rek1')" style="margin-top: 15px; padding: 8px 20px; background: #d4af37; color: white; border: none; border-radius: 5px; cursor: pointer;">Salin No. Rekening</button>
-            </div>
-
-            <!-- Bank Card 2 (Atau E-Wallet) -->
-            <div class="card" style="background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); min-width: 280px;">
-                <img src="https://iconape.com/wp-content/files/qy/184226/svg/184226.svg" alt="Logo Bank" style="height: 30px; margin-bottom: 15px;">
-                <p style="font-weight: bold; margin: 5px 0;">Nomor Rekening:</p>
-                <p id="rek2" style="font-size: 1.2rem; letter-spacing: 1px;">139 855 2586</p>
-                <p style="color: #666;">a.n. Luckas Antoni</p>
-                <button onclick="copyToClipboard('rek2')" style="margin-top: 15px; padding: 8px 20px; background: #d4af37; color: white; border: none; border-radius: 5px; cursor: pointer;">Salin No. Rekening</button>
-            </div>
-
+            <p class="footer-note">Mohon maaf apabila ada kesalahan pada penulisan nama & gelar</p>
         </div>
     </div>
-</section>
-    <!--Akhir Sumbangan Container-->
 
-    <!--Footer-->
-    <section class="footer-section" data-aos="fade-up">
-      <div class="container">
-        <p class="footer-text">"Inilah akhirnya tulang dari tulangku Dan daging dari dagingku."<br />Kejadian 2:23</p>
-        <h2 class="title-script">Luckas & Henny</h2>
-        <p class="footer-credit">© 2026 Eden Production</p>
-      </div>
-    </section>
-    <!--Akhir footer-->
+    <!-- SECTION 2: MAIN CONTENT (ISI UNDANGAN) -->
+    <div id="main-invitation" style="display: none">
+        
+        <!-- Hero Header -->
+        <header class="hero-section">
+            <div class="hero-content">
+                <p>THE WEDDING OF</p>
+                <h1 class="title-script">Luckas & Henny</h1>
+                <p class="hero-date">16 . 05 . 2026</p>
+            </div>
+        </header>
 
-    <!--Ini bagian jangan dihapus untuk foto modal-->
+        <div class="container">
+            <!-- Quote -->
+            <section class="quote-container" data-aos="fade-up">
+                <p>"Berdua lebih baik daripada sendiri... Tali rangkap tiga tidak mudah diputuskan."</p>
+                <strong>Pengkhotbah 4:9, 12</strong>
+            </section>
+
+            <!-- Galeri Moments -->
+            <section class="moments-section">
+                <h2 class="moment-title" data-aos="zoom-in">Our Moments</h2>
+                <div class="moments-grid">
+                    <div class="moment-item" data-aos="fade-up" data-aos-delay="100"><img src="assets/moment_1.png" onclick="openLightbox(this.src)"></div>
+                    <div class="moment-item" data-aos="fade-up" data-aos-delay="200"><img src="assets/moment_2.jpg" onclick="openLightbox(this.src)"></div>
+                    <div class="moment-item" data-aos="fade-up" data-aos-delay="300"><img src="assets/moment_3.jpg" onclick="openLightbox(this.src)"></div>
+                    <div class="moment-item" data-aos="fade-up" data-aos-delay="400"><img src="assets/moment_4.jpg" onclick="openLightbox(this.src)"></div>
+                    <div class="moment-item" data-aos="fade-up" data-aos-delay="100"><img src="assets/moment_5.jpg" onclick="openLightbox(this.src)"></div>
+                    <div class="moment-item" data-aos="fade-up" data-aos-delay="200"><img src="assets/moment_6.jpg" onclick="openLightbox(this.src)"></div>
+                    <div class="moment-item" data-aos="fade-up" data-aos-delay="300"><img src="assets/moment_7.jpg" onclick="openLightbox(this.src)"></div>
+                    <div class="moment-item" data-aos="fade-up" data-aos-delay="400"><img src="assets/moment_8.png" onclick="openLightbox(this.src)"></div>
+                </div>
+            </section>
+
+            <!-- Countdown -->
+            <section class="time-section">
+                <div class="time-overlay">
+                    <div class="time-content-wrapper" data-aos="fade-up">
+                        <h2 class="title-script">Acara Pernikahan</h2>
+                        <div id="countdown" class="time-group">
+                            <div class="time-unit"><span id="days" class="time-value">00</span><span class="time-label">HARI</span></div>
+                            <div class="time-unit"><span id="hours" class="time-value">00</span><span class="time-label">JAM</span></div>
+                            <div class="time-unit"><span id="minutes" class="time-value">00</span><span class="time-label">MENIT</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Gift Section -->
+        <section id="gift" class="gift-section">
+            <h2>Kirim Kado</h2>
+            <div class="gift-cards">
+                <div class="card">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Bank_Central_Asia.svg" height="30">
+                    <p id="rek1">3600 2184 59</p>
+                    <button onclick="copyToClipboard('rek1')">Salin Rekening</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer-section">
+            <h2 class="title-script">Luckas & Henny</h2>
+            <p>© 2026 Eden Production</p>
+        </footer>
+    </div>
+
+    <!-- Lightbox Modal -->
     <div id="photo-modal" class="modal-lightbox" onclick="closeLightbox()">
-      <span class="close-btn">&times;</span>
-      <img class="modal-content" id="full-image" />
+        <span class="close-btn">&times;</span>
+        <img class="modal-content" id="full-image" />
     </div>
-    <!--Akhir bagian modal foto-->
 
-    <!--Bagian jangan dihapus untuk audio-->
+    <!-- Audio Player -->
     <div id="music-control" class="music-btn" onclick="toggleMusic()">
-      <i id="music-icon" class="fas fa-compact-disc fa-spin-slow"></i>
-      <audio id="wedding-music" loop>
-        <source src="assets/music.mp3" type="audio/mpeg" />
-      </audio>
+        <i id="music-icon" class="fas fa-compact-disc fa-spin-slow"></i>
+        <div id="player"></div>
     </div>
-    <div id="player" style="position: absolute; top: -9999px; left: -9999px"></div>
-    <!--Akhir bagian Audio-->
-  </body>
+
+    <!-- SCRIPTS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
+        // Inisialisasi awal
+        AOS.init({ duration: 1500, once: true });
+        document.body.style.overflow = "hidden";
+
+        // Ambil nama tamu
+        const urlParams = new URLSearchParams(window.location.search);
+        const guest = urlParams.get("to");
+        if (guest) document.getElementById("guest-name").innerText = guest;
+
+        // Fungsi Buka Undangan
+        function openInvitation() {
+            const sampul = document.getElementById("welcome-screen");
+            const isi = document.getElementById("main-invitation");
+
+            if (isi) isi.style.display = "block";
+            if (sampul) {
+                sampul.classList.add("hidden-sampul");
+                setTimeout(() => { sampul.style.display = "none"; }, 1300);
+            }
+            document.body.style.overflow = "auto";
+            if (player && player.playVideo) player.playVideo();
+            document.getElementById("music-control").style.display = "flex";
+            window.scrollTo(0, 0);
+            AOS.refresh();
+        }
+
+        // Galeri & Lightbox[cite: 3]
+        function openLightbox(src) {
+            const modal = document.getElementById("photo-modal");
+            modal.style.display = "flex";
+            document.getElementById("full-image").src = src;
+            document.body.style.overflow = "hidden";
+        }
+        function closeLightbox() {
+            document.getElementById("photo-modal").style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        // YouTube Audio[cite: 3]
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player("player", {
+                height: "0", width: "0", videoId: "lnuFWMnyKk0",
+                playerVars: { autoplay: 0, loop: 1, playlist: "lnuFWMnyKk0" }
+            });
+        }
+        function toggleMusic() {
+            const icon = document.getElementById("music-icon");
+            if (player.getPlayerState() === 1) {
+                player.pauseVideo();
+                icon.classList.replace("fa-compact-disc", "fa-volume-mute");
+            } else {
+                player.playVideo();
+                icon.classList.replace("fa-volume-mute", "fa-compact-disc");
+            }
+        }
+    </script>
+</body>
 </html>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 1500,
-    once: false,
-  });
-
-  // 1. Kunci scroll di awal
-  document.body.style.overflow = "hidden";
-
-  // 2. Ambil Nama Tamu dari URL
-  const urlParams = new URLSearchParams(window.location.search);
-  const guestName = urlParams.get("to");
-  if (guestName) {
-    document.getElementById("guest-name").innerText = guestName;
-  }
-
-  // 3. Fungsi Buka Undangan
-function openInvitation() {
-    const sampul = document.getElementById("welcome-screen");
-    const isiUndangan = document.getElementById("main-invitation");
-
-    // 1. Munculkan konten utama
-    if (isiUndangan) {
-        isiUndangan.style.display = "block";[cite: 1]
-    }
-
-    // 2. Jalankan animasi angkat sampul
-    if (sampul) {
-        sampul.classList.add("hidden-sampul");[cite: 1]
-    }
-
-    // 3. Aktifkan scroll
-    document.body.style.overflow = "auto";[cite: 1]
-
-    // 4. Putar musik (YouTube API)
-    if (player && typeof player.playVideo === 'function') {
-        player.playVideo();[cite: 1]
-        document.getElementById("music-control").style.display = "flex";[cite: 1]
-    }
-
-    // 5. Segarkan animasi AOS
-    setTimeout(() => {
-        window.scrollTo(0, 0);
-        AOS.refresh();[cite: 1]
-    }, 600);
-}
-
-  // Script Countdown
-
-  const weddingDay = new Date("May 16, 2026 12:00:00").getTime();
-
-  setInterval(function () {
-    const now = new Date().getTime();
-    const diff = weddingDay - now;
-
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-    document.getElementById("days").innerText = d;
-    document.getElementById("hours").innerText = h;
-    document.getElementById("minutes").innerText = m;
-    document.getElementById("seconds").innerText = s;
-  }, 1000);
-
-  document.getElementById("wish-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const message = document.getElementById("message").value;
-
-    if (name && message) {
-      const wishDisplay = document.getElementById("wish-display");
-
-      // Buat elemen kartu ucapan baru
-      const newWish = document.createElement("div");
-      newWish.className = "wish-card";
-      newWish.innerHTML = `<strong>${name}</strong><p>${message}</p>`;
-
-      // Tambahkan ke paling atas daftar
-      wishDisplay.insertBefore(newWish, wishDisplay.firstChild);
-
-      // Reset Form
-      document.getElementById("wish-form").reset();
-    }
-  });
-</script>
-
-<!--Script untuk Audio-->
-<script>
-  // 1. Load YouTube IFrame API secara asinkron
-  var tag = document.createElement("script");
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName("script")[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-  var player;
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player("player", {
-      height: "0",
-      width: "0",
-      videoId: "lnuFWMnyKk0", // GANTI DENGAN ID VIDEO YOUTUBE
-      playerVars: {
-        autoplay: 0,
-        loop: 1,
-        playlist: "lnuFWMnyKk0", // Diperlukan agar bisa looping
-      },
-      events: {
-        onReady: onPlayerReady,
-      },
-    });
-  }
-
-  function onPlayerReady(event) {
-    // Player siap, tapi jangan play dulu sampai tombol diklik
-  }
-
-  // 2. Modifikasi fungsi openInvitation kamu yang lama
-  function openInvitation() {
-    const sampul = document.getElementById("welcome-screen");
-    const isiUndangan = document.getElementById("main-invitation");
-
-    if (isiUndangan) {
-      isiUndangan.style.display = "block";
-    }
-    if (sampul) {
-      sampul.classList.add("hidden-sampul");
-    }
-
-    document.body.style.overflow = "auto";
-
-    // --- PUTAR YOUTUBE DI SINI ---
-    if (player && player.playVideo) {
-      player.playVideo();
-      document.getElementById("music-control").style.display = "flex";
-    }
-
-    setTimeout(() => {
-      AOS.init({ duration: 1500, once: true });
-      AOS.refresh();
-    }, 600);
-  }
-
-  // 3. Fungsi toggle untuk tombol musik
-  function toggleMusic() {
-    const icon = document.getElementById("music-icon");
-    if (player.getPlayerState() === 1) {
-      // 1 berarti sedang playing
-      player.pauseVideo();
-      icon.classList.replace("fa-music", "fa-volume-mute");
-    } else {
-      player.playVideo();
-      icon.classList.replace("fa-volume-mute", "fa-music");
-    }
-  }
-</script>
-
-<!--Script Zoom dan Lokasi-->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const guestName = urlParams.get("to");
-    const accessKey = urlParams.get("loc"); // Kita ambil dari parameter 'loc' agar nama tamu tetap bersih
-
-    const locationSection = document.getElementById("location-wrapper");
-    const zoomSection = document.getElementById("zoom-wrapper");
-
-    // Sembunyikan keduanya secara default untuk keamanan
-    if (locationSection) locationSection.style.display = "none";
-    if (zoomSection) zoomSection.style.display = "none";
-
-    // Logika hanya berjalan jika ada nama tamu (?to=)
-    if (guestName) {
-      // Cek apakah token akses sesuai
-      if (accessKey === "irfsd-fasew") {
-        // Tampilkan ZOOM saja
-        if (zoomSection) zoomSection.style.display = "block";
-        console.log("Akses Zoom Aktif");
-      } else if (accessKey === "qxltp-zmnbr") {
-        // Tampilkan LOKASI saja
-        if (locationSection) locationSection.style.display = "block";
-        console.log("Akses Lokasi Fisik Aktif");
-      } else {
-        // Jika tidak ada token atau token salah, biarkan tetap tersembunyi
-        console.log("Mode Tamu Umum: Informasi rahasia disembunyikan");
-      }
-    }
-  });
-</script>
-<script>
-function copyToClipboard(id) {
-    const text = document.getElementById(id).innerText;
-    navigator.clipboard.writeText(text).then(() => {
-        alert("Nomor rekening berhasil disalin: " + text);
-    }).catch(err => {
-        console.error('Gagal menyalin: ', err);
-    });
-}
-
-  function openLightbox(src) {
-  const modal = document.getElementById("photo-modal");
-  const fullImg = document.getElementById("full-image");
-  
-  if (modal && fullImg) {
-    modal.style.display = "flex"; // Memunculkan modal
-    fullImg.src = src; // Mengisi gambar[cite: 1]
-    document.body.style.overflow = "hidden"; // Mengunci scroll[cite: 1]
-  }
-} // <--- Tanda kurung ini yang sebelumnya hilang
-
-function closeLightbox() {
-  const modal = document.getElementById("photo-modal");
-  if (modal) {
-    modal.style.display = "none"; // Sembunyikan kembali[cite: 1, 2]
-    document.body.style.overflow = "auto"; // Buka scroll[cite: 1, 2]
-  }
-}
-</script>
