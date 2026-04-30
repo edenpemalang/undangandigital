@@ -347,28 +347,28 @@ function openInvitation() {
     const sampul = document.getElementById("welcome-screen");
     const isiUndangan = document.getElementById("main-invitation");
 
+    // 1. Munculkan konten utama
     if (isiUndangan) {
         isiUndangan.style.display = "block";[cite: 1]
     }
-    
+
+    // 2. Jalankan animasi angkat sampul
     if (sampul) {
         sampul.classList.add("hidden-sampul");[cite: 1]
-        // Tambahkan ini agar setelah animasi selesai, sampul tidak bisa diklik lagi
-        setTimeout(() => {
-            sampul.style.display = "none"; 
-        }, 1300); // Sesuaikan dengan durasi transisi CSS kamu
     }
 
+    // 3. Aktifkan scroll
     document.body.style.overflow = "auto";[cite: 1]
 
-    // Putar musik jika ada
-    if (player && player.playVideo) {
+    // 4. Putar musik (YouTube API)
+    if (player && typeof player.playVideo === 'function') {
         player.playVideo();[cite: 1]
         document.getElementById("music-control").style.display = "flex";[cite: 1]
     }
 
+    // 5. Segarkan animasi AOS
     setTimeout(() => {
-        AOS.init({ duration: 1500, once: true });[cite: 1]
+        window.scrollTo(0, 0);
         AOS.refresh();[cite: 1]
     }, 600);
 }
