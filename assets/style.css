@@ -898,3 +898,53 @@ section,
   background: #ffffff; /* Biarkan tetap putih agar "pop up" di atas background biru */
   border: 1px solid #bae6fd;
 }
+
+/* --- Perbaikan Sampul untuk Mobile --- */
+@media screen and (max-width: 600px) {
+  #welcome-screen {
+    padding: 20px;
+    /* Memastikan konten tidak meluap */
+    overflow-y: auto; 
+  }
+
+  .sampul-content {
+    /* Mengurangi jarak antar elemen agar lebih padat */
+    gap: 10px; 
+    width: 100%;
+  }
+
+  /* Ukuran foto diperkecil agar tidak memakan tempat */
+  .photo-frame {
+    width: 180px !important; 
+    height: 260px !important;
+    margin-bottom: 15px !important;
+  }
+
+  /* Ukuran font nama diperkecil */
+  .sampul-names {
+    font-size: 2rem !important;
+    margin-bottom: 15px !important;
+  }
+
+  /* Kotak tamu dibuat lebih ringkas */
+  .guest-box {
+    padding: 10px !important;
+    margin-top: 10px !important;
+    width: 90% !important;
+  }
+
+  .guest-box p {
+    font-size: 0.75rem !important;
+  }
+
+  #guest-name {
+    font-size: 1.1rem !important;
+  }
+
+  /* Ukuran tombol disesuaikan */
+  .btn-custom {
+    padding: 10px 20px !important;
+    font-size: 0.85rem !important;
+    margin-top: 15px !important;
+  }
+}
