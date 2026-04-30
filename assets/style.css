@@ -41,9 +41,9 @@ body {
 
 /* Efek saat tombol diklik (JavaScript class) */
 .hidden-sampul {
-  transform: translateY(-100%);
-  visibility: hidden;
-  pointer-events: none;
+  transform: translateY(-100%);[cite: 2]
+  visibility: hidden;[cite: 2]
+  pointer-events: none; /* Tambahkan ini agar klik tidak tersangkut di sini */[cite: 2]
 }
 
 .sampul-content {
