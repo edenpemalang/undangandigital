@@ -354,20 +354,6 @@
     }, 500);
   }
 
-  function openLightbox(src) {
-  const modal = document.getElementById("photo-modal");
-  if (modal) {
-    modal.style.display = "flex"; // Memunculkan modal
-    document.getElementById("full-image").src = src; // Mengisi gambar
-    document.body.style.overflow = "hidden"; // Mengunci scroll agar tidak geser
-  }
-
-  function closeLightbox() {
-const modal = document.getElementById("photo-modal");
-  modal.style.display = "none"; // Sembunyikan kembali
-  document.body.style.overflow = "auto"; // Buka scroll
-  }
-
   // Script Countdown
 
   const weddingDay = new Date("May 16, 2026 09:00:00").getTime();
