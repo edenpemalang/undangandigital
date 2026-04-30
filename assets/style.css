@@ -294,10 +294,13 @@ body {
 
 .moments-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 Kolom di Desktop */
+  grid-template-columns: repeat(4, 1fr); /* 3 Kolom di Desktop */
+  max-width: 1000px; /* Membatasi lebar grid agar tidak terlalu lebar */
   gap: 15px;
 
   padding: 10px;
+  margin: 0 auto;
+}
 }
 
 .moment-item {
