@@ -883,7 +883,7 @@ section,
 /* Khusus untuk Time Overlay (Countdown) */
 .time-overlay {
   /* Kita buat overlay birunya sedikit lebih transparan agar foto background tetap terlihat manis */
-  background-color: rgba(224, 242, 254, 0.4) !important;
+  background-color: rgba(224, 242, 254, 0.2) !important;
 }
 
 /* Detail Zoom Info */
