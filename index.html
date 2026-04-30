@@ -506,4 +506,23 @@ function copyToClipboard(id) {
         console.error('Gagal menyalin: ', err);
     });
 }
+
+  function openLightbox(src) {
+  const modal = document.getElementById("photo-modal");
+  const fullImg = document.getElementById("full-image");
+  
+  if (modal && fullImg) {
+    modal.style.display = "flex"; // Memunculkan modal
+    fullImg.src = src; // Mengisi gambar[cite: 1]
+    document.body.style.overflow = "hidden"; // Mengunci scroll[cite: 1]
+  }
+} // <--- Tanda kurung ini yang sebelumnya hilang
+
+function closeLightbox() {
+  const modal = document.getElementById("photo-modal");
+  if (modal) {
+    modal.style.display = "none"; // Sembunyikan kembali[cite: 1, 2]
+    document.body.style.overflow = "auto"; // Buka scroll[cite: 1, 2]
+  }
+}
 </script>
