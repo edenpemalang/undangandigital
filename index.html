@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="assets/aos.css" />
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-
+<style>
+  /* Menjamin modal benar-benar sembunyi saat startup */
+  #photo-modal {
+    display: none !important;
+  }
+</style>
 <style>#welcome-screen {
   position: fixed;
   top: 0;
@@ -350,16 +355,16 @@
   }
 
   function openLightbox(src) {
-    document.getElementById("photo-modal").style.display = "flex";
-    document.getElementById("full-image").src = src;
-    // Kunci scroll saat foto dibuka agar tidak bergeser
-    document.body.style.overflow = "hidden";
+const modal = document.getElementById("photo-modal");
+  modal.style.display = "flex"; // Munculkan saat foto diklik
+  document.getElementById("full-image").src = src;
+  document.body.style.overflow = "hidden"; // Kunci scroll
   }
 
   function closeLightbox() {
-    document.getElementById("photo-modal").style.display = "none";
-    // Kembalikan scroll setelah foto ditutup
-    document.body.style.overflow = "auto";
+const modal = document.getElementById("photo-modal");
+  modal.style.display = "none"; // Sembunyikan kembali
+  document.body.style.overflow = "auto"; // Buka scroll
   }
 
   // Script Countdown
