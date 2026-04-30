@@ -8,67 +8,47 @@
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
- <style>
-#welcome-screen {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+<style>#welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  /* Gunakan latar belakang krem atau netral agar fokus ke foto */
+  background-color: #fdfbf8; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: transform 1.3s cubic-bezier(0.645, 0.045, 0.355, 1), visibility 1.3s;
+}
+
+/* CSS untuk bingkai lengkung (Arch) */
+.photo-frame {
+    width: 250px;
+    height: 350px;
+    margin: 0 auto 20px;
+    border: 5px solid #fff;
+    border-radius: 150px 150px 10px 10px; /* Membuat bentuk kubah */
     overflow: hidden;
-    
-    /* MENGHAPUS BIRU: Gunakan gambar langsung tanpa warna solid di depannya */
-    /* Kita gunakan overlay hitam tipis (0.3) supaya teks tetap mudah dibaca */
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                url('assets/sampul_bg.jpg');
-    
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* Efek mewah saat di-scroll */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-/* Pastikan tidak ada overlay biru yang tersisa */
-.bg-overlay {
-    display: none; /* Matikan jika ada class ini yang membawa warna biru */
-}
-</style>
-<style>
-/* Menghapus warna biru di seluruh body dan elemen utama */
-body, html {
-    margin: 0;
-    padding: 0;
-    background-color: white; /* Ganti biru default jadi putih/bersih */
-}
-
-/* Bagian Pertama setelah klik Buka Undangan */
-#home, .hero-section, main section:first-of-type {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-    background: url('assets/sampul_bg.jpg') no-repeat center center;
-    background-size: cover;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Pastikan welcome screen benar-benar hilang tanpa menyisakan space */
-#welcome-screen.hidden {
-    display: none !important;
-}
-</style>
+.photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}</style>
     
   </head>
   
   <body>
-    <!--Sampul Container-->
+<!-- Sampul Container -->
 <div id="welcome-screen">
     <div class="sampul-content" data-aos="fade-up">
+        <!-- Bingkai Foto -->
         <div class="photo-frame">
-            <img src="assets/sampul_bg.jpg" alt="Foto Luckas & Henny">
+            <img src="assets/sampul_bg.jpg" alt="Luckas & Henny">
         </div>
 
         <h1 class="sampul-names">Luckas & Henny</h1>
@@ -77,10 +57,10 @@ body, html {
             <p>Kepada Yth. Ibu/Bapak/Saudara/i:</p>
             <h2 id="guest-name">Nama Tamu</h2>
         </div>
-        <button class="btn-open" onclick="openInvitation()">
+
+        <button class="btn-custom" onclick="openInvitation()">
             <i class="fa-solid fa-envelope-open"></i> BUKA UNDANGAN
         </button>
-        <p class="footer-note">Mohon maaf apabila ada kesalahan pada penulisan nama & gelar</p>
     </div>
 </div>
     <!--Akhir Sampul Container-->
