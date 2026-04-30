@@ -27,33 +27,16 @@ body {
   left: 0;
   width: 100%;
   height: 100vh;
-  /* Gunakan latar belakang krem atau netral agar fokus ke foto */
-  background-color: #fdfbf8; 
+  background-color: #e0f2fe;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  transition: transform 1.3s cubic-bezier(0.645, 0.045, 0.355, 1), visibility 1.3s;
-}
-
-.bg-overlay {
-    display: none; /* Matikan jika ada class ini yang membawa warna biru */
-
-/* CSS untuk bingkai lengkung (Arch) */
-.photo-frame {
-    width: 250px;
-    height: 350px;
-    margin: 0 auto 20px;
-    border: 5px solid #fff;
-    border-radius: 150px 150px 10px 10px; /* Membuat bentuk kubah */
-    overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-}
-
-.photo-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  /* Transisi Halus Tanpa Njeglek */
+  transition:
+    transform 1.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    visibility 1.3s;
+  will-change: transform;
 }
 
 /* Efek saat tombol diklik (JavaScript class) */
