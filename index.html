@@ -321,42 +321,39 @@
   }
 
   // 3. Fungsi Buka Undangan
-  function openInvitation() {
+function openInvitation() {
     const sampul = document.getElementById("welcome-screen");
     const isiUndangan = document.getElementById("main-invitation");
 
-    // A. Munculkan struktur isi undangan
     if (isiUndangan) {
-      isiUndangan.style.display = "block";
+        isiUndangan.style.display = "block";[cite: 1]
     }
-
-    // B. Jalankan animasi geser sampul
+    
     if (sampul) {
-      sampul.classList.add("hidden-sampul");
+        sampul.classList.add("hidden-sampul");[cite: 1]
+        // Tambahkan ini agar setelah animasi selesai, sampul tidak bisa diklik lagi
+        setTimeout(() => {
+            sampul.style.display = "none"; 
+        }, 1300); // Sesuaikan dengan durasi transisi CSS kamu
     }
 
-    // C. Buka kunci scroll
-    document.body.style.overflow = "auto";
+    document.body.style.overflow = "auto";[cite: 1]
 
-    // D. INISIALISASI AOS SEKARANG (Kunci agar animasi pas scroll)
-    // Kita hancurkan inisialisasi lama (jika ada) dan buat baru setelah konten muncul
+    // Putar musik jika ada
+    if (player && player.playVideo) {
+        player.playVideo();[cite: 1]
+        document.getElementById("music-control").style.display = "flex";[cite: 1]
+    }
+
     setTimeout(() => {
-      window.scrollTo(0, 0); // Pastikan balik ke atas dulu
-
-      AOS.init({
-        duration: 1500, // Kecepatan animasi
-        once: false, // Ubah ke false jika ingin animasi berulang saat scroll up/down
-        mirror: false,
-        anchorPlacement: "top-bottom", // Animasi dipicu saat bagian atas elemen menyentuh bawah layar
-      });
-
-      AOS.refresh(); // Segarkan perhitungan posisi elemen
-    }, 500);
-  }
+        AOS.init({ duration: 1500, once: true });[cite: 1]
+        AOS.refresh();[cite: 1]
+    }, 600);
+}
 
   // Script Countdown
 
-  const weddingDay = new Date("May 16, 2026 09:00:00").getTime();
+  const weddingDay = new Date("May 16, 2026 12:00:00").getTime();
 
   setInterval(function () {
     const now = new Date().getTime();
