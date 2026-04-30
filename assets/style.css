@@ -293,19 +293,21 @@ body {
 }
 
 .moments-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 Kolom di Desktop */
+display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 kolom di desktop */
   gap: 15px;
-
   padding: 10px;
+  max-width: 1000px; /* Membatasi lebar grid agar tidak terlalu lebar */
+  margin: 0 auto;
 }
 
 .moment-item {
-  width: 100%;
-  aspect-ratio: 1 / 1; /* Membuat foto jadi kotak sempurna */
+width: 100%;
+  aspect-ratio: 1 / 1; /* Foto kotak sempurna */
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 12px; /* Lebih melengkung agar lebih modern */
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-color: #ddd; /* Warna pengganti jika foto gagal muat */
 }
 
 .moment-item img {
@@ -323,8 +325,9 @@ body {
 /* Responsif Mobile (2 Kolom agar gambar tidak terlalu kecil) */
 @media screen and (max-width: 768px) {
   .moments-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom di HP */
   }
+}
 
   .moments-section {
     background-attachment: scroll; /* Matikan fixed di mobile agar lebih ringan */
