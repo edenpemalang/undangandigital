@@ -36,6 +36,9 @@ body {
   transition: transform 1.3s cubic-bezier(0.645, 0.045, 0.355, 1), visibility 1.3s;
 }
 
+.bg-overlay {
+    display: none; /* Matikan jika ada class ini yang membawa warna biru */
+
 /* CSS untuk bingkai lengkung (Arch) */
 .photo-frame {
     width: 250px;
