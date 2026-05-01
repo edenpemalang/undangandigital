@@ -226,7 +226,7 @@ body {
   width: 100%;
   height: 100vh;
   /* Menggunakan background foto tanpa overlay gelap agar warna hitam terlihat jelas */
-  background-image: url("main_bg.jpg");
+  background-image: url("assets/main_bg.jpg");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -880,7 +880,7 @@ section,
 /* Khusus untuk Time Overlay (Countdown) */
 .time-overlay {
   /* Kita buat overlay birunya sedikit lebih transparan agar foto background tetap terlihat manis */
-  background-color: rgba(224, 242, 254, 0.85) !important;
+  background-color: rgba(224, 242, 254, 0.35) !important;
 }
 
 /* Detail Zoom Info */
