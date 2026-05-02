@@ -66,14 +66,14 @@ body {
 
 .guest-box {
   margin: 35px 0;
-  padding: 20px 0;
+  padding: 10px 0;
   border-top: 1px solid #dcd0c0;
   border-bottom: 1px solid #dcd0c0;
 }
 
 #guest-name {
   font-family: "Playfair Display", serif;
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-style: italic;
   margin-top: 10px;
 }
