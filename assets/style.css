@@ -59,7 +59,7 @@ body {
 
 .sampul-names {
   font-family: "Parisienne", cursive;
-  font-size: 15rem;
+  font-size: 5rem;
   margin: 20px 0;
   color: #1a1a1a;
 }
@@ -197,7 +197,7 @@ body {
   }
 
   .sampul-names {
-    font-size: 15rem;
+    font-size: 2rem;
   }
 
   .couple-frame {
