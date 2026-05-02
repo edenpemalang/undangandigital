@@ -55,7 +55,7 @@
     text-align: center;
 }
 
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 600px) {
   .hero-section {
     height: 100svh; /* Menggunakan small viewport height untuk mobile */
   }
@@ -63,7 +63,27 @@
   .hero-content .title-script {
     font-size: 3rem;
   }
+#welcome-screen {
+        justify-content: space-around; /* Memberi ruang lebih lega antar elemen */
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .welcome-content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Pastikan tombol buka undangan punya margin bawah agar tidak tertutup bar browser */
+    .btn-buka {
+        margin-top: 20px;
+        margin-bottom: 30px; 
+    }
+    
 }
+  
   
 /* Menghapus warna biru di seluruh body dan elemen utama */
 body, html {
