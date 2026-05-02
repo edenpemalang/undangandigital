@@ -73,7 +73,7 @@ body {
 
 #guest-name {
   font-family: "Playfair Display", serif;
-  font-size: 1.8rem;
+  font-size: 1rem;
   font-style: italic;
   margin-top: 10px;
 }
@@ -197,7 +197,7 @@ body {
   }
 
   .sampul-names {
-    font-size: 2.8rem;
+    font-size: 1.5rem;
   }
 
   .couple-frame {
