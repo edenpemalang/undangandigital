@@ -348,13 +348,13 @@ body, html {
     <!--Akhir bagian modal foto-->
 
     <!--Bagian jangan dihapus untuk audio-->
-    <div id="music-control" class="music-btn" onclick="toggleMusic()">
-      <i id="music-icon" class="fas fa-compact-disc fa-spin-slow"></i>
-      <audio id="wedding-music" loop>
-        <source src="assets/music.mp3" type="audio/mpeg" />
-      </audio>
-    </div>
-    <div id="player" style="position: absolute; top: -9999px; left: -9999px"></div>
+<!--Bagian jangan dihapus untuk audio-->
+<div id="music-control" class="music-btn" onclick="toggleMusic()" style="display: none;">
+  <i id="music-icon" class="fas fa-compact-disc fa-spin-slow"></i>
+</div>
+
+<!-- Wadah YouTube Player (PENTING) -->
+<div id="player"></div>
     <!--Akhir bagian Audio-->
   </body>
 </html>
@@ -475,23 +475,25 @@ body, html {
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
   var player;
-  function onYouTubeIframeAPIReady() {
-    player = new YT.Player("player", {
-      height: "0",
-      width: "0",
-      videoId: "lnuFWMnyKk0", // ID Video YouTube kamu
-      playerVars: {
-        autoplay: 0,
-        loop: 1,
-        playlist: "lnuFWMnyKk0", // Wajib sama dengan videoId agar bisa loop
-        controls: 0,
-        showinfo: 0,
-        modestbranding: 1
-      },
-      events: {
-        'onReady': onPlayerReady
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player("player", {
+    height: "0",
+    width: "0",
+    videoId: "lnuFWMnyKk0", // ID Video YouTube
+    playerVars: {
+      autoplay: 0,
+      loop: 1,
+      playlist: "lnuFWMnyKk0", 
+      controls: 0,
+      showinfo: 0,
+      modestbranding: 1
+    },
+    events: {
+      'onReady': function(event) {
+          console.log("YouTube Player Ready");
       }
-    });
+    }
+  });
   }
 
   function onPlayerReady(event) {
@@ -519,19 +521,18 @@ body, html {
     // Buka kunci scroll
     document.body.style.overflow = "auto";
 
-    // JALANKAN YOUTUBE (Kunci untuk HP)
-    if (player && player.playVideo) {
-      player.playVideo();
-      document.getElementById("music-control").style.display = "flex";
-    }
-
-    // Refresh AOS
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-      AOS.init({ duration: 1500, once: true });
-      AOS.refresh();
-    }, 500);
+// Trigger musik YouTube
+  if (player && typeof player.playVideo === 'function') {
+    player.playVideo();
+    document.getElementById("music-control").style.display = "flex";
   }
+
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+    AOS.init({ duration: 1500, once: true });
+    AOS.refresh();
+  }, 500);
+}
 
   // 3. Fungsi Kontrol Musik (Play/Pause)
   function toggleMusic() {
