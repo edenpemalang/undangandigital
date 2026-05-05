@@ -466,8 +466,9 @@ body, html {
 </script>
 
 <!--Script untuk Audio-->
+<!--Script YouTube API & Kontrol Undangan-->
 <script>
-  // 1. Load YouTube IFrame API secara asinkron
+  // 1. Load YouTube IFrame API
   var tag = document.createElement("script");
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName("script")[0];
@@ -478,101 +479,107 @@ body, html {
     player = new YT.Player("player", {
       height: "0",
       width: "0",
-      videoId: "lnuFWMnyKk0", // GANTI DENGAN ID VIDEO YOUTUBE
+      videoId: "lnuFWMnyKk0", // ID Video YouTube kamu
       playerVars: {
         autoplay: 0,
         loop: 1,
-        playlist: "lnuFWMnyKk0", // Diperlukan agar bisa looping
+        playlist: "lnuFWMnyKk0", // Wajib sama dengan videoId agar bisa loop
+        controls: 0,
+        showinfo: 0,
+        modestbranding: 1
       },
       events: {
-        onReady: onPlayerReady,
-      },
+        'onReady': onPlayerReady
+      }
     });
   }
 
   function onPlayerReady(event) {
-    // Player siap, tapi jangan play dulu sampai tombol diklik
+    // Player siap, menunggu klik tombol Buka Undangan
   }
 
-  // 2. Modifikasi fungsi openInvitation kamu yang lama
+  // 2. Fungsi Utama Buka Undangan
   function openInvitation() {
     const sampul = document.getElementById("welcome-screen");
     const isiUndangan = document.getElementById("main-invitation");
 
+    // Tampilkan konten
     if (isiUndangan) {
       isiUndangan.style.display = "block";
     }
+
+    // Animasi Keluar Sampul
     if (sampul) {
-      sampul.classList.add("hidden-sampul");
+      sampul.style.transform = "translateY(-100%)";
+      setTimeout(() => {
+        sampul.classList.add("hidden");
+      }, 1300);
     }
 
+    // Buka kunci scroll
     document.body.style.overflow = "auto";
 
-    // --- PUTAR YOUTUBE DI SINI ---
+    // JALANKAN YOUTUBE (Kunci untuk HP)
     if (player && player.playVideo) {
       player.playVideo();
       document.getElementById("music-control").style.display = "flex";
     }
 
+    // Refresh AOS
     setTimeout(() => {
+      window.scrollTo(0, 0);
       AOS.init({ duration: 1500, once: true });
       AOS.refresh();
-    }, 600);
+    }, 500);
   }
 
-  // 3. Fungsi toggle untuk tombol musik
+  // 3. Fungsi Kontrol Musik (Play/Pause)
   function toggleMusic() {
     const icon = document.getElementById("music-icon");
-    if (player.getPlayerState() === 1) {
-      // 1 berarti sedang playing
+    if (player && player.getPlayerState() === 1) { // 1 = playing
       player.pauseVideo();
-      icon.classList.replace("fa-music", "fa-volume-mute");
+      icon.classList.remove("fa-spin-slow");
+      icon.classList.replace("fa-compact-disc", "fa-play-circle");
     } else {
       player.playVideo();
-      icon.classList.replace("fa-volume-mute", "fa-music");
+      icon.classList.add("fa-spin-slow");
+      icon.classList.replace("fa-play-circle", "fa-compact-disc");
     }
   }
-</script>
 
-<!--Script Zoom dan Lokasi-->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
+  // 4. Inisialisasi Awal
+  document.addEventListener("DOMContentLoaded", function() {
+    document.body.style.overflow = "hidden"; // Kunci scroll
+    
+    // Ambil Nama Tamu
     const urlParams = new URLSearchParams(window.location.search);
     const guestName = urlParams.get("to");
-    const accessKey = urlParams.get("loc"); // Kita ambil dari parameter 'loc' agar nama tamu tetap bersih
-
-    const locationSection = document.getElementById("location-wrapper");
-    const zoomSection = document.getElementById("zoom-wrapper");
-
-    // Sembunyikan keduanya secara default untuk keamanan
-    if (locationSection) locationSection.style.display = "none";
-    if (zoomSection) zoomSection.style.display = "none";
-
-    // Logika hanya berjalan jika ada nama tamu (?to=)
     if (guestName) {
-      // Cek apakah token akses sesuai
-      if (accessKey === "irfsd-fasew") {
-        // Tampilkan ZOOM saja
-        if (zoomSection) zoomSection.style.display = "block";
-        console.log("Akses Zoom Aktif");
-      } else if (accessKey === "qxltp-zmnbr") {
-        // Tampilkan LOKASI saja
-        if (locationSection) locationSection.style.display = "block";
-        console.log("Akses Lokasi Fisik Aktif");
-      } else {
-        // Jika tidak ada token atau token salah, biarkan tetap tersembunyi
-        console.log("Mode Tamu Umum: Informasi rahasia disembunyikan");
-      }
+      document.getElementById("guest-name").innerText = guestName;
     }
   });
-</script>
-<script>
-function copyToClipboard(id) {
-    const text = document.getElementById(id).innerText;
-    navigator.clipboard.writeText(text).then(() => {
-        alert("Nomor rekening berhasil disalin: " + text);
-    }).catch(err => {
-        console.error('Gagal menyalin: ', err);
-    });
-}
+
+  // Countdown & Lightbox tetap sama
+  const weddingDay = new Date("May 16, 2026 12:00:00").getTime();
+  setInterval(function () {
+    const now = new Date().getTime();
+    const diff = weddingDay - now;
+    if (diff > 0) {
+      document.getElementById("days").innerText = Math.floor(diff / (1000 * 60 * 60 * 24));
+      document.getElementById("hours").innerText = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      document.getElementById("minutes").innerText = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      document.getElementById("seconds").innerText = Math.floor((diff % (1000 * 60)) / 1000);
+    }
+  }, 1000);
+
+  function openLightbox(src) {
+    document.getElementById("photo-modal").style.display = "flex";
+    document.getElementById("full-image").src = src;
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    document.getElementById("photo-modal").style.display = "none";
+    document.body.style.overflow = "auto";
+  }
 </script>
